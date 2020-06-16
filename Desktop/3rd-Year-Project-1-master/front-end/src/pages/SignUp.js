@@ -1,21 +1,17 @@
 import React from 'react';
-import './SignIn.css';
-
-import Header from '../partiels/Header';
-import Footer from '../partiels/Footer';
-
-
+import './SignUp.css';
 
 function SignUp() {
 
     return (
-        <div className="App">
-               <Header/>
+        <div classeName="App2" >
+              
  <div className="container">
               <div className="d-flex justify-content-center h-75">
-        <div className="card">
+        <div className="card1">
+            
             <div className="card-header">
-                <h3>Sign Up</h3>
+               
             </div>
             <form >
             <div className="card-body">
@@ -155,7 +151,7 @@ function SignUp() {
 </div>
 
 
-<Footer/> 
+
 </div>
     )
 }

@@ -1,13 +1,6 @@
 @import  url('https://fonts.googleapis.com/css?family=Numans');
-   .App{
-    background-image: url(../background01.jpg) ;
-    background-repeat: no-repeat;
-     background-attachment: fixed ;
-    background-position: center;
-     background-size: cover; 
-     height: 652px;
-     width: "100%";
-        height:"400px";
+   .App4{
+
       font-family: 'Numans', sans-serif;
 
      }

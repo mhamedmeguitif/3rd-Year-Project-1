@@ -1,19 +1,17 @@
 
 
 import './SignIn.css';
-import background01 from '../pages/background01.jpg';
-import Header from '../partiels/Header';
-import Footer from '../partiels/Footer';
+
 import {  Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 function SignIn() {
   
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('');   
         
         return (
-            <div className="App">
-           <Header/>
+            <div className="App4">
+         
 
       
   <header className="App-header">
@@ -21,9 +19,7 @@ function SignIn() {
 <div className="container">
 <div className="d-flex justify-content-center h-100">
     <div className="card">
-        <div className="card-header">
-            <h3>Sign In</h3>
-        </div>
+       
         <div className="card-body">
             <form>
                 <div className="input-group form-group">
@@ -61,7 +57,7 @@ function SignIn() {
 </div>
 </div>
   </header>
- <Footer/>
+ 
 </div>
         )
     }

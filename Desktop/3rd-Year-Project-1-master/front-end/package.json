@@ -7,11 +7,13 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "bootstrap-icons": "^1.0.0-alpha3",
     "cookies-js": "^1.2.3",
     "history": "^4.10.1",
     "js-cookie": "^2.2.1",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.0",
     "react-feather": "^2.0.3",
     "react-image-scroller": "^0.3.0",
@@ -22,7 +24,8 @@
     "react-social-media-bar": "0.0.4",
     "react-social-media-icons": "^1.1.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "set PORT=3006 && react-scripts start",

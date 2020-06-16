@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../partiels/Header';
+import Navbar1 from '../partiels/Navbar1';
 import Footer from '../partiels/Footer';
 import a from '../image/a.png';
 import galery03 from '../image/galery03.jpg';
@@ -276,7 +276,7 @@ const Slideshow = () => {
 
         <div className="App2" >
         <section style={ sectionStyle }> 
-         <Header/>
+         <Navbar1/>
         <div className="container">
          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
          <h1 >Bienvenu chez <span style={{color: "indianred"}}>MyConf-Share</span>... </h1>
