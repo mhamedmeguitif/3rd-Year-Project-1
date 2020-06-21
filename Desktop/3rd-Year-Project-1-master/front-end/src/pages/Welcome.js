@@ -25,7 +25,7 @@ const properties = {
   arrows: true,
   pauseOnHover: true,
   onChange: (oldIndex, newIndex) => {
-    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+    
   }
 }
 
@@ -292,7 +292,7 @@ const Slideshow = () => {
                          <br></br><br></br><br></br>
           <br></br><br></br><br></br>
           
-          <a href="#" class="btn btn-dark btn-lg  " role="button" aria-pressed="true">Voir plus</a>
+          <a href="#" className="btn btn-dark btn-lg  " role="button" aria-pressed="true">Voir plus</a>
           </div>
         
            <br></br><br></br><br></br><br></br><br></br>

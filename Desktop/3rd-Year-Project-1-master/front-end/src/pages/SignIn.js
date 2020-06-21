@@ -1,14 +1,89 @@
-
+import axios from 'axios' ;
 
 import './SignIn.css';
-
-import {  Link } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
+import {UserContext} from './UserContext'
+import {  Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState,useContext } from 'react';
 function SignIn() {
-  
+    
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');   
+    const [err, setErr] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const history= useHistory();
+  const { user, setUser } = useContext(UserContext);
+  
+    function loginUser(){
+        setLoading(true);
+        let data = JSON.stringify({
+            username: username,
+            password: password,
+            
+         });
+          
+          
+    axios
+    .post('http://localhost:3000/users/login',data,{headers:{"Content-Type" : "application/json"}})
+    .then( (res) =>{
+        setLoading(false);
+        setSuccess(true);
         
+        const login=true;
+       
+        const  firstname = res.data.body.nom_de_famille;
+        const  lastname= res.data.body.prenom;
+        const  Pays = res.data.body.Pays;
+        const Email= res.data.body.Email;
+        const Domaine = res.data.body.Domaine;
+        const specialite =  res.data.body.specialite;
+        const Etablissement= res.data.body.Etablissement;
+        const  compagnie= res.data.body.compagnie;
+        
+        setUser({username,
+        password,
+        firstname,
+        lastname,
+        Pays,
+        Email,
+        Domaine,
+        specialite,
+        Etablissement,
+        compagnie, login});
+       
+       
+        console.log(user);
+       
+        })
+    .catch((err)=>{
+        console.log(err)
+        setErr(true);
+    })
+   
+
+    }
+    
+    function handleSubmit (e){
+        e.preventDefault();
+        if (username && password){
+            setErr(false);
+            loginUser();
+            if (success){
+              history.push("/profile");  
+            }
+            
+        }
+        else{
+            setErr(true);
+        }
+    }
+    useEffect(()=>{
+        
+
+            loginUser();
+        
+
+    });
         return (
             <div className="App4">
          
@@ -21,19 +96,21 @@ function SignIn() {
     <div className="card">
        
         <div className="card-body">
-            <form>
-                <div className="input-group form-group">
+            <form onSubmit={handleSubmit}>
+            {loading && <div>Loading...</div>}
+             {err && <div> username or password incorrect !</div>}
+                <div className="input-group form-group">s
                     <div className="input-group-prepend">
                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                     </div>
-                    <input type="text" className="form-control" placeholder="email"  name="email" id="email"/>
+                    <input type="text" className="form-control" placeholder="username"  name="username" id="username" onChange={(e) => setUsername(e.target.value)}/>
                     
                 </div>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                     </div>
-                    <input type="password" className="form-control" placeholder="password"  name="password" id="passwors"/>
+                    <input type="password" className="form-control" placeholder="password"  name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <div className="row align-items-center remember">
                     <input type="checkbox"/>Remember Me

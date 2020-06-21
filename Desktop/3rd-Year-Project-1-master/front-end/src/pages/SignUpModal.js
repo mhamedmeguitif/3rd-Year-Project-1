@@ -9,7 +9,7 @@ function SignUpModal(props) {
             <Modal
       {...props}
       size="lg"
-      contentClassName="bg-dark"
+     
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
