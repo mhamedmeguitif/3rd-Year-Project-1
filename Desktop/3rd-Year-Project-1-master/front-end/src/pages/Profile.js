@@ -4,7 +4,7 @@ import {   useHistory } from "react-router-dom";
 import {UserContext} from './UserContext'
 import UserNavbar from '../partiels/UserNavbar'
 import Footer from '../partiels/Footer'
-function Profile () {
+function Profile ({match}) {
     const { user } = useContext(UserContext); 
     const history= useHistory();
     useEffect(() => {
@@ -38,7 +38,7 @@ function Profile () {
         				<ul className="nav">
         					<li className="active"><a href="#"><span className="fa fa-user"></span> Profile</a></li>
         					<li><a href="#"><span className="fa fa-cog"></span> Settings</a></li>
-                            <li><a href="#"><span className="fa fa-credit-card"></span> My Conferences</a></li>
+                            <li><a href="/profile/myConf"><span className="fa fa-credit-card"></span> My Conferences</a></li>
         					<li><a href="user-drive.html"><span className="fa fa-th"></span> My articles</a></li>
         					<li><a href="user-drive.html"><span className="fa fa-th"></span> My evaluations</a></li>
         					<li><a href="#"><span className="fa fa-clock-o"></span> Reminders</a></li>
@@ -62,7 +62,7 @@ function Profile () {
                             <div className="form-group">
                                 <label style={{color:'black'}} className="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div className="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" className="form-control" value={user.username1}/>
+                                    <input type="text" className="form-control" value={user.username}/>
                                 </div>
                             </div>
         

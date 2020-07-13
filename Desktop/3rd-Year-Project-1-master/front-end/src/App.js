@@ -5,12 +5,14 @@ import './App.css';
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import Welcome from './pages/Welcome';
 import {UserContext} from './pages/UserContext';
-import SignUp from './pages/SignUp';
+import Home from './pages/Home';
 import Profile from './pages/Profile';
 import { useLocalStorage } from './hooks';
+import AllMyConf from "./pages/User_conf_pages/AllMyConf";
 
 function App() { 
   const [user, setUser] = useLocalStorage({
+    id:'',
     username: '',
     password: '',
     firstname:'',
@@ -21,7 +23,8 @@ function App() {
     specialite: '',
     Etablissement: '',
     compagnie: '',
-    login: false
+    login: false,
+    token:''
   });
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
   
@@ -33,9 +36,10 @@ function App() {
       
             <PublicRoute path="/welcome" component={Welcome} />
           
-        
-             <PrivateRoute exact path="/profile" component={Profile} />
+             <PrivateRoute exact path="/home" component={Home} />
        
+             <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/profile/myConf" component={AllMyConf} />
   
       </BrowserRouter>
     

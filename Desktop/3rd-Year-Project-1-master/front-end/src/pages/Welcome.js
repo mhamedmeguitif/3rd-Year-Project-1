@@ -279,48 +279,48 @@ const Slideshow = () => {
          <Navbar1/>
         <div className="container">
          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-         <h1 >Bienvenu chez <span style={{color: "indianred"}}>MyConf-Share</span>... </h1>
-         <h6>Déposez votre article et participez a des conférences maintenant !</h6>
+         <h1 >Wellcome to <span style={{color: "indianred"}}>MyConf-Time</span>... </h1>
+         <h6>Drop off your article and attend conferences now!</h6>
          <br></br><br></br>
          <button type="button" className="btn btn-danger" id="btn"> Inscription</button>
          <br></br><br></br><br></br><br></br><br></br><br></br><br></br> <br></br><br></br><br></br> <br></br><br></br><br></br> <br></br>
          <div className="text-center"> 
-           <h2>Des conférences a vous proposez </h2>
+           <h2>Conferences for you : </h2>
          <br></br><br></br><br></br>
        
          <Slideshow/>
                          <br></br><br></br><br></br>
-          <br></br><br></br><br></br>
           
-          <a href="#" className="btn btn-dark btn-lg  " role="button" aria-pressed="true">Voir plus</a>
+          
+          <a href="#" className="btn btn-dark btn-lg  " role="button" aria-pressed="true">See more</a>
           </div>
         
-           <br></br><br></br><br></br><br></br><br></br>
+           <br></br><br></br><br></br>
            
         <div className="classe1">
              <br></br><br></br><br></br> 
       
-             <h5>Vous etes résponsable d'une conférence et vous cherchez  à la présentez au chercheurs ? </h5>
+             <h5>Are you responsible for a conference and you are looking to present it to researchers? </h5>
        
              <br></br><br></br>
-             <a href="#" class="btn btn-danger  btn-lg " role="button" aria-pressed="true">Cliquez ici</a>
+             <a href="#" class="btn btn-danger  btn-lg " role="button" aria-pressed="true">Clic here</a>
                <br></br><br></br><br></br>
           </div>
             <br></br><br></br>
          <div className="about" >
             <br></br> <br></br>
-            <h2>About CONFERENCES</h2>
+            <h2>About MyConf-Share</h2>
             <br></br>
-            <p>C'est un site spéciales pour les chercheurs ! </p>
-            <p>Ils facilite les taches pour les cher-men et les chercheurs dans un cadre professionnel ... </p>
-            <a href="#" class="btn btn-dark  " role="button" aria-pressed="true">Voir plus d'informations</a>
+            <p>This is a special site for researchers!</p>
+            <p>It facilitates tasks for dear men and researchers in a professional setting ... </p>
+            <a href="#" class="btn btn-dark  " role="button" aria-pressed="true">See more informations</a>
            <br></br><br></br><br></br> 
          </div>
          <br></br><br></br><br></br>
     
          <div className="conf">
             <br></br>
-            <h2>Des conférences déja qui sont déjà faites !</h2>
+            <h2>Conferences already made!</h2>
             <br></br>
             <div className="each-slide">
            
@@ -399,7 +399,7 @@ const Slideshow = () => {
                            </div>
                          </div></div></div></div>
            </div>
-            <br></br>
+            
           
             <a href="#" class="btn btn-dark  " role="button" aria-pressed="true">Voir plus de conférences qui sont déja faites</a>
          </div><br></br> <br></br>

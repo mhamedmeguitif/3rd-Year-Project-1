@@ -13,10 +13,12 @@ function UserNavbar() {
     axios
     .get('http://localhost:3000/users/logout',user,{headers:{"Content-Type" : "application/json"}})
     .then( (res) =>{
-    history.push("/welcome"); 
-    localStorage.clear();
-    user.login=false;
+     localStorage.clear(); 
+     user.login=false;
     console.log(res.data)
+    history.push("/welcome"); 
+    
+    
     })
  }
 
@@ -31,7 +33,7 @@ function UserNavbar() {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="/welcome">Home</Nav.Link>
+      <Nav.Link href="/home">Home</Nav.Link>
       <Nav.Link href="#">About</Nav.Link>
       <NavDropdown title="Help" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -47,7 +49,7 @@ function UserNavbar() {
             <span class="notification-badge badge badge-danger">1</span>
         </a>
         &nbsp;  &nbsp;
-    <Navbar.Brand href="/profile">{user.username1}</Navbar.Brand>
+    <Navbar.Brand href="/profile">{user.username}</Navbar.Brand>
 
     &nbsp;  &nbsp;  
                         <div >

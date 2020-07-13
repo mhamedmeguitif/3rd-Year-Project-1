@@ -10,11 +10,19 @@ var passport = require('passport');
 var cors = require('cors');
 
 
-var authenticate = require('./authenticate');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var conferenceRouter =  require('./routes/conferences');
-var config = require('./config');
+const  authenticate = require('./authenticate');
+const  indexRouter = require('./routes/index');
+const  usersRouter = require('./routes/users');
+const  conferenceRouter =  require('./routes/conferences');
+const  articleRouter = require('./routes/Article');
+const  demandeRouter = require('./routes/DemandePrticipationConf');
+const  evaluationRouter = require('./routes/Evaluation');
+const  evaluationfinalRouter = require ('./routes/EvaluationFinal');
+const  participationRouter = require('./routes/Participant');
+const  vouxRouter = require("./routes/FicheDeVoux") ; 
+const  themesRouter = require("./routes/Themes");
+const  NotificationRouter = require("./routes/Notification"); 
+const  config = require('./config');
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url); 
@@ -50,6 +58,12 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/conferences',conferenceRouter );
+app.use('/Demande' , demandeRouter);
+app.use('/Themes' , themesRouter);
+app.use('/Evaluation' , evaluationRouter);
+app.use('/participation' , participationRouter);
+app.use('/evaluationfinal' , evaluationfinalRouter);
+app.use('/Article',articleRouter);
 
 
 

@@ -8,7 +8,7 @@ const cors = require('./cors');
 router.use(bodyParser.json());
 /* GET users listing. */
 
-router.get("/", (req, res, next)=> {
+router.get("/",authenticate.verifyUser, (req, res, next)=> {
 
   User.find({})
     .then(
@@ -22,7 +22,7 @@ router.get("/", (req, res, next)=> {
     .catch((err) => next(err));
 });
 
-router.delete("/" , (req, res, next) => {
+router.delete("/" , authenticate.verifyUser,(req, res, next) => {
   User.remove({})
     .then(
       (resp) => {

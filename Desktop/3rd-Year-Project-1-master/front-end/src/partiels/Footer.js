@@ -27,14 +27,14 @@ function Footer() {
              <a href="#"><img  src={linkedin}  width="40px" height="40px"/> </a>
             
             <br></br><br></br><br></br>
-            <button type="button" className="btn btn-outline-dark">TEAM Developpement</button>
+            <button type="button" className="btn btn-dark">TEAM Developpement</button>
               
     </div> 
     <div></div>
     </th>  
     <th>
    
-      <h5>LOGO</h5></th>    
+      <h5>MyConf-Time</h5></th>    
      
   <th>
 

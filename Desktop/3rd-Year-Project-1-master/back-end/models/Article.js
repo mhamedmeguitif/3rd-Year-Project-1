@@ -2,23 +2,28 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ArticleSchema = new Schema(
   {
-    les_Auteur: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    les_Auteur: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }],
     Titre: {
       type: String,
       required: true,
     },
     Theme: {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: 'Theme'
     },
-    les_mots_clés: [{ type: Srting }],
+    les_mots_clés: [{
+      type: String 
+    }],
     Resumer: {
       type: String,
       required: true,
     },
     Article_Pdf: {
       type: String,
-      required: true, 
+      required: true,
     },
     chercheurId: {
       type: mongoose.Schema.Types.ObjectId,

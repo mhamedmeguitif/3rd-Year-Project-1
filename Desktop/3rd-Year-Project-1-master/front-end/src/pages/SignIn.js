@@ -30,7 +30,7 @@ function SignIn() {
         setSuccess(true);
         
         const login=true;
-       
+        const  id = res.data.body._id;
         const  firstname = res.data.body.nom_de_famille;
         const  lastname= res.data.body.prenom;
         const  Pays = res.data.body.Pays;
@@ -39,8 +39,8 @@ function SignIn() {
         const specialite =  res.data.body.specialite;
         const Etablissement= res.data.body.Etablissement;
         const  compagnie= res.data.body.compagnie;
-        
-        setUser({username,
+        const  token= res.data.token;
+        setUser({id,username,
         password,
         firstname,
         lastname,
@@ -49,15 +49,15 @@ function SignIn() {
         Domaine,
         specialite,
         Etablissement,
-        compagnie, login});
+        compagnie, login,token});
        
        
-        console.log(user);
+        console.log(res.data);
        
         })
     .catch((err)=>{
         console.log(err)
-        setErr(true);
+       
     })
    
 
@@ -97,9 +97,9 @@ function SignIn() {
        
         <div className="card-body">
             <form onSubmit={handleSubmit}>
-            {loading && <div>Loading...</div>}
-             {err && <div> username or password incorrect !</div>}
-                <div className="input-group form-group">s
+            
+             {err && <div style={{color:'white'}}> username or password incorrect !</div>}
+                <div className="input-group form-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                     </div>

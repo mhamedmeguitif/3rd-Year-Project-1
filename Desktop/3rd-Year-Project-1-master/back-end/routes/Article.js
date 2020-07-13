@@ -6,30 +6,40 @@ const Article_Model =  require('../models/Article');
 var authenticate = require('../authenticate');
 
 
-ArticleRouter.route('/:conference')
+ArticleRouter.route('/')
 
-.get((req , res , next) =>{
-    Article_Model.find({}) 
-    .then((Article)=>{
+.get(authenticate.verifyUser , (req , res , next) =>{
+    Article_Model.find({})
+    .populate('les_Auteur')
+    .populate('Theme')
+    .populate('chercheurId')
+    .populate('ConferenceId')
+     .then((Article)=>{
        res.statusCode = 200 ;  
        res.setHeader('Content-Type' ,'application/json');
-       res.json(Article) 
+       res.json(Article); 
     } , (err) => next(err))
     .catch((err)=> next(err));   
 })
 .post(authenticate.verifyUser, (req,res,next )=>{
 
     req.body.chercheurId = req.user._id ;
-    req.body.ConferenceId = req.params.conference ; 
+    req.body.ConferenceId = req.params.conference ;
+      
 
     Article_Model.create(req.body)
-    .populate('ConferenceId' , 'chercheurId' , 'les_Auteur')
+    .populate('les_Auteur')
+    .populate('Theme')
+    .populate('chercheurId')
+    .populate('ConferenceId')
     .then((Article)=>{
+
+      
     },(err) => next(err))
     .catch((err)=> next(err)); 
 })
 
-.put((req,res,next )=>{
+.put( authenticate.verifyUser ,  (req,res,next )=>{
     res.statusCode = 403 ; 
     res.end('PUT Operation not supported  on /conferences '); 
  })
@@ -44,9 +54,9 @@ ArticleRouter.route('/:conference')
     .catch((err)=> next(err));
   });
 
-  ConferencesRouter.route('/:conference/:Article')
+  ArticleRouter.route('/:Article')
 
-  .get((req,res,next )=>{
+  .get(authenticate.verifyUser , (req,res,next )=>{
     Article_Model.findById(req.params.Article)
     .then((Article)=>{
        res.statusCode = 200 ;  
@@ -55,7 +65,7 @@ ArticleRouter.route('/:conference')
     } , (err) => next(err))
     .catch((err)=> next(err)); 
 })
-.post((req,res,next )=>{
+.post(authenticate.verifyUser , (req,res,next )=>{
     res.statusCode = 403 ; 
     res.end('POST operation not supported on /conferences/Article '  );     
     }) 
@@ -77,4 +87,7 @@ ArticleRouter.route('/:conference')
            res.json(resp); 
          },(err) => next(err))
          .catch((err)=> next(err));
-     });
+        });
+
+
+        module.exports = ArticleRouter ;

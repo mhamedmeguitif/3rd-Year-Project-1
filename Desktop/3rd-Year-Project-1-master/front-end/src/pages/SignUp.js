@@ -3,7 +3,7 @@ import './SignUp.css';
 import {UserContext} from './UserContext'
 import {   useHistory } from "react-router-dom";
 import axios from 'axios' ;
-function SignUp(props ) {
+function SignUp() {
 const [username , setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [firstname, setFirstname] = useState('');
@@ -41,7 +41,9 @@ axios
     setLoading(false);
     setSuccess(true);
     const login=true;
-    setUser({username,
+    const  id = res.data.body._id;
+    const  token= res.data.token;
+    setUser({ id, username,
         password,
         firstname,
         lastname,
@@ -50,7 +52,7 @@ axios
         Domaine,
         specialite,
         Etablissement,
-        compagnie, login});
+        compagnie, login,token});
        
     console.log(res.data);
 })
@@ -90,8 +92,8 @@ function handleSubmit (e){
             <form  onSubmit={handleSubmit} >
             <div className="card-body">
             <div>
-            {loading && <div>Loading...</div>}
-             {err && <div>{err} !</div>}
+            {loading && <div style={{color:'white'}}>Loading...</div>}
+             {err && <div style={{color:'white'}}>{err} ERROR try again !</div>}
             </div>
                <div className="row">
                    <div className="col-xs-12 col-sm-6 col-md-6">

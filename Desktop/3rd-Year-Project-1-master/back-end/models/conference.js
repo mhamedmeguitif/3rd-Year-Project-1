@@ -1,56 +1,66 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ConfSchema = new Schema({
- Location: {
-  type: String,
-  required: true
- },
- Sponsors: {
-  type: [String],
- },
- Nom:{
-  type: String,
-  required: true
- },
- 
- NBRp :{
-  type: Number,
-  required: true
- },
- DUREE: {
-  type: Number, 
-  required: true 
- },
- COUT: {
-  type: Number,
-  required: true
- },
- TOPICS : {
-  type: [String],
-  required: true
- },
- TEL: {
-    type: Number,
-    required: true  
- },
- laProcedureSoumissionArticles: {
-  type: String,
-  required: true
- }, 
- company: {
-    type: String,
-    required : true
- }, 
-EmailCompany: {
-    type: String,
-    required: true
-   }  , 
-Proprietaire_conference : {
-   type :   mongoose.Schema.Types.ObjectId , 
-   ref  :  'User' 
-}
+   NameOfConference: {
+      type : String,
+      required : true
+   },
+   NameOfCompany: {
+      type : String,
+      required : true
+   },
+   TheDeadline: {
+      type : Date,
+      required : true
+   },
+   LittleDefinitionOfCompany: {
+      type : String,
+      required : true
+   },
+   AboutCompany: {
+      type : String,
+      required : true
+   },
+   TheThemes: [{
+      type : Schema.Types.ObjectId , 
+      ref : 'Theme'
+   }],
+   Eligibility: {
+      type: String,
+      required : true
+   },
+   Funding: {
+      type : String  , 
+      required : true
+   },
+   ConditionOfApplicant: {
+      type : String,
+      required : true
+   },
+   OpportunityInformation: {
+      type : String,
+      required : true
+   },
+   EducationalConditions: {
+      type : String,
+      required : true
+   },
+   ConditionOfArtical: {
+      type : String,
+      required : true
+   },
+   ConferenceOwner: {
+          type : Schema.Types.ObjectId ,
+          ref : 'User'  
+   }, 
+   Valide : {
+      type : Boolean ,
+      default : false
+   },
+   ReadingCommitee: [String]
 }, {
- timestamps: true
+   timestamps: true,
+
 });
 
 var ConfSchema1 = mongoose.model('conference', ConfSchema);
