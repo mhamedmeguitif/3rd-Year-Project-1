@@ -1,6 +1,7 @@
 import React , {useState, useContext, useEffect} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import {UserContext} from '../UserContext'
+import Select from 'react-select'
 
 import './AjouterConf.css'
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -186,9 +187,9 @@ axios
         setErr(false);
         
         
-        if (success){
+       
             history.push("/profile/myConf");  
-          }  
+          
           
     }
     else{
@@ -202,15 +203,16 @@ function ModalTheme (props){
         <div className="modal">
      <Modal
 {...props}
-size="lg"
+size="sm"
+
 aria-labelledby="contained-modal-title-vcenter"
 centered
 >
 <Modal.Header closeButton>
- 
+ Description : 
 </Modal.Header>
-<Modal.Body closeButton>
- <AjouterthemeModal/>
+<Modal.Body >
+ <AjouterthemeModal />
 </Modal.Body>
 
 </Modal>
@@ -222,59 +224,7 @@ function AjouterthemeModal (){
     return(
         <div className="App4">
          
-
-      
-  <header className="App-header">
-  <div id="root"></div>
-<div className="container">
-<div className="d-flex justify-content-center h-100">
- 
-            
-            
-             
-              
-<table class="table table-bordered">
-<thead>
-    <tr>
-     
-      <th scope="col">Name of the theme</th>
-      <th scope="col">Description</th>
-      <th scope="col">Add it to your list</th>
-    </tr>
-  </thead>
-  <tbody>
-        {TheDefaultThemes.map((Theme,index) => (
-                            <tr key= {index} >
-                          
-                          <p  style={{color: "indianred"}}>{Theme.NameOfTheme}</p>
-                       
-                     
-                          <th scope="row">{Theme.Description}</th>
-                      <td>
-                           <button class="btn btn-outline-danger "  onClick={()=>{
-                               thSubmit(Theme);}}>
-                             Add it 
-            
-                       </button>
-                       
-                      </td>
-                      {add && <p>added</p>}
-                       <br></br><br></br>
-                            </tr>
-                        
-                 ))}    
-  </tbody>
-                      
-                    </table>
-                
-                {erre && <div style={{color:'white'}}>{erre} ERROR try again !</div>}
-               
-           
-        
-</div>
-</div>
-  </header>
- 
+    <p>{Description}</p>
 </div>
     )
 }
@@ -332,11 +282,36 @@ useEffect(() => {
                     <textarea className="form-control" placeholder="About Company"  name="AboutCompany" id="AboutCompany" onChange={(e) => setAboutCompany(e.target.value)}></textarea>
                 </div>
                 <br></br>
-               <a type="button" className="btn btn-danger" onClick={() => setModalShow(true)} style={{color:'white'}} > all themes</a>
-                            <ModalTheme
+                <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fa fa-quote-left"></i></span>
+                    </div>
+                    
+                    <DropdownButton id="dropdown-item-button" title="Choose the themes for your conference " variant="light"  >
+                        {TheDefaultThemes.map((Theme,index) => (
+                        <Dropdown.Item key= {index} style={{color:'black'}}>
+                        {Theme.NameOfTheme} 
+                       <button type="button" class="btn btn-light float-right" onClick={() => {setModalShow(true); setDescription(Theme.Description)}} >
+                       <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-file-earmark-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2 3a2 2 0 0 1 2-2h5.293a1 1 0 0 1 .707.293L13.707 5a1 1 0 0 1 .293.707V13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3zm7 2V2l4 4h-3a1 1 0 0 1-1-1zM4.5 8a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+</svg>
+                       </button>
+                        <ModalTheme
+                        
                            show={modalShow}
                            onHide={() => setModalShow(false)}
                           />
+                           <button type="button" class="btn btn-light float-right " onClick={ () => thSubmit(Theme)} >
+                           <svg style={{color:'indianred'}} width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-plus-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
+</svg>
+                           </button>
+                        
+                </Dropdown.Item>
+                 ))}    
+                    </DropdownButton>
+                </div>
+                <br></br>
                           <p style={{color:'white'}}>If you don't found your themes you can add it</p>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -356,7 +331,8 @@ useEffect(() => {
                 </div>
                   &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
                 <span class="notification-badge badge badge-danger">{TheThemes.length}</span>
-                <DropdownButton id="dropdown-item-button" title="Show the themes" variant="secondary">
+                
+                <DropdownButton id="dropdown-item-button" title="Show your themes" variant="secondary"  >
                         {TheThemes.map((Theme,index) => (
                         <Dropdown.Item key= {index} style={{color:'black'}}>
                         {Theme.NameOfTheme} 
@@ -366,7 +342,7 @@ useEffect(() => {
                  ))}    
                     </DropdownButton> 
                    
-
+      
                <br></br>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -412,7 +388,7 @@ useEffect(() => {
                 </div>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
-                        <span className="input-group-text"><i className="fa fa-quote-left"></i></span>
+                        <span className="input-group-text"><i className="fas fa-user"></i></span>
                     </div>
                     <input type="text" className="form-control" placeholder="Reading Commity"  name="ReadingCommitee" id="ReadingCommitee" onChange={e => setEvaluateur(e.target.value)}  />  &nbsp;  &nbsp; 
                     <button type="button" class="btn btn-outline-danger" onClick={EvalSubmit} >Add</button>

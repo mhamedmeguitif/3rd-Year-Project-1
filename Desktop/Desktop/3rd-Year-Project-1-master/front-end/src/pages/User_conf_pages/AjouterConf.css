@@ -12,7 +12,7 @@
             }
             
             .card2{
-            height: 1100px;
+            height: 1200px;
             margin-top: auto;
             margin-bottom: auto;
             width: 500px;
@@ -60,4 +60,8 @@
             margin-left: 4px;
             }
       
-            
+            .dropdown-menu {
+               width: 340px;
+               max-height: 300px;
+               overflow-y: scroll;
+           }

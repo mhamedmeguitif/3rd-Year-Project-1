@@ -7,8 +7,10 @@ import Welcome from './pages/Welcome';
 import {UserContext} from './pages/UserContext';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import AllConf from './pages/Allconf';
+import AllMyConf from './pages/User_conf_pages/AllMyConf';
 import { useLocalStorage } from './hooks';
-import AllMyConf from "./pages/User_conf_pages/AllMyConf";
+
 
 function App() { 
   const [user, setUser] = useLocalStorage({
@@ -37,7 +39,7 @@ function App() {
             <PublicRoute path="/welcome" component={Welcome} />
           
              <PrivateRoute exact path="/home" component={Home} />
-       
+               <PrivateRoute exact path="/Allconf" component={AllConf} />
              <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/profile/myConf" component={AllMyConf} />
   

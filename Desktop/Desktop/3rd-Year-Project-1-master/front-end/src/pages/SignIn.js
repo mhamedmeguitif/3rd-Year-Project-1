@@ -93,7 +93,7 @@ function SignIn() {
   <div id="root"></div>
 <div className="container">
 <div className="d-flex justify-content-center h-100">
-    <div className="card">
+    <div className="card3">
        
         <div className="card-body">
             <form onSubmit={handleSubmit}>
