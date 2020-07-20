@@ -10,6 +10,8 @@ import Profile from './pages/Profile';
 import AllConf from './pages/Allconf';
 import AllMyConf from './pages/User_conf_pages/AllMyConf';
 import { useLocalStorage } from './hooks';
+import AllmyArticles from "./pages/User_article_pages/AllmyArticles";
+import PublicConf from "./pages/PublicConf";
 
 
 function App() { 
@@ -35,14 +37,18 @@ function App() {
     <div className="App" >
 
       <BrowserRouter>
-      
+      <Route exact path="/">
+    <Redirect to="/Welcome" />
+</Route>
             <PublicRoute path="/welcome" component={Welcome} />
-          
+            
              <PrivateRoute exact path="/home" component={Home} />
                <PrivateRoute exact path="/Allconf" component={AllConf} />
              <PrivateRoute exact path="/profile" component={Profile} />
             <PrivateRoute exact path="/profile/myConf" component={AllMyConf} />
-  
+<PrivateRoute exact path="/profile/articles" component={AllmyArticles} />
+        <PrivateRoute exact path="/Allconf/:id" component={PublicConf} />
+            
       </BrowserRouter>
     
   </div></UserContext.Provider>

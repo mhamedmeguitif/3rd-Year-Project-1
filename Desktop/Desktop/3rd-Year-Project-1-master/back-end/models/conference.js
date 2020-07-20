@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 const ConfSchema = new Schema({
    NameOfConference: {
       type : String,
-      required : true
+      required : true, 
+      unique : true 
    },
    NameOfCompany: {
       type : String,

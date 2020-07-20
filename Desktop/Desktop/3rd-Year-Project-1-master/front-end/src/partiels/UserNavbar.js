@@ -44,21 +44,26 @@ function UserNavbar() {
       </NavDropdown>
     </Nav>
     <Nav >
-    <a class="nav-link" href="#" target="_blank" rel="noopener" aria-label="GitHub">
+    <Nav.Link href="/home">
+    <a class="nav-link"  target="_blank" rel="noopener" aria-label="GitHub">
+      
             <i class="fa fa-lg fa-bell" style={{color:'white'}}></i>
             <span class="notification-badge badge badge-danger">1</span>
         </a>
-        &nbsp;  &nbsp;
-    <Navbar.Brand href="/profile">{user.username}</Navbar.Brand>
-
-    &nbsp;  &nbsp;  
-                        <div >
-                            <a type="button" className="btn btn-danger" style={{color:'white'}} onClick={handalLogout} > Log-out</a>
-                                       
-                        </div>
-                        
+        </Nav.Link>
     
-    </Nav>
+        &nbsp;  &nbsp;           
+                       
+        <NavDropdown title={ 
+          
+          <img src="https://img.icons8.com/cotton/64/000000/gender-neutral-user.png" width="40" height="40" class="rounded-circle"/>
+        } id="collasible-nav-dropdown">
+        <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+        <NavDropdown.Item  onClick={handalLogout}> Log out</NavDropdown.Item>
+        
+      </NavDropdown> 
+    
+    </Nav>&nbsp;  &nbsp; &nbsp;  &nbsp;  
   </Navbar.Collapse>
 </Navbar>
          

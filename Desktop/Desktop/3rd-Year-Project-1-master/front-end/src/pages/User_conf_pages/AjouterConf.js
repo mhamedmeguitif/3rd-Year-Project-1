@@ -1,7 +1,7 @@
 import React , {useState, useContext, useEffect} from 'react'
 import Modal from 'react-bootstrap/Modal'
 import {UserContext} from '../UserContext'
-import Select from 'react-select'
+
 
 import './AjouterConf.css'
 import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -196,7 +196,7 @@ axios
         
     }
 }
-//Modal theme
+//Modal de description du theme
 function ModalTheme (props){
     return (
         
@@ -219,7 +219,7 @@ centered
  </div>
 )
 }
-
+// description de theme
 function AjouterthemeModal (){
     return(
         <div className="App4">
@@ -262,8 +262,9 @@ useEffect(() => {
                 </div>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
-                        <span className="input-group-text"><i ></i></span>
+                        <span className="input-group-text"><i >D/L</i></span>
                     </div>
+                    
                     <input type="date" className="form-control" placeholder="The Deadline"  name="TheDeadline" id="TheDeadline" onChange={(e) => setTheDeadline(e.target.value)} />
                     
                 </div>
@@ -272,7 +273,7 @@ useEffect(() => {
                         <span className="input-group-text"><i className="fa fa-quote-left"></i></span>
                     </div>
                    
-                    <textarea className="form-control" placeholder="Little Definition Of Company"  name="LittleDefinitionOfCompany" id="LittleDefinitionOfCompany" onChange={(e) => setLittleDefinitionOfCompany(e.target.value)} ></textarea>
+                    <textarea className="form-control" placeholder="Little Definition Of Company + the real date "  name="LittleDefinitionOfCompany" id="LittleDefinitionOfCompany" onChange={(e) => setLittleDefinitionOfCompany(e.target.value)} ></textarea>
                 </div>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -287,7 +288,7 @@ useEffect(() => {
                         <span className="input-group-text"><i className="fa fa-quote-left"></i></span>
                     </div>
                     
-                    <DropdownButton id="dropdown-item-button" title="Choose the themes for your conference " variant="light"  >
+                    <DropdownButton id="dropdown-item-button" title="Choose the themes for your conference from the list bellow &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; " variant="light"  >
                         {TheDefaultThemes.map((Theme,index) => (
                         <Dropdown.Item key= {index} style={{color:'black'}}>
                         {Theme.NameOfTheme} 
@@ -311,7 +312,20 @@ useEffect(() => {
                  ))}    
                     </DropdownButton>
                 </div>
-                <br></br>
+               
+               &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
+                <span class="notification-badge badge badge-danger">{TheThemes.length}</span>
+                
+                <DropdownButton id="dropdown-item-button" title="Show your themes" variant="secondary"  >
+                        {TheThemes.map((Theme,index) => (
+                        <Dropdown.Item key= {index} style={{color:'black'}}>
+                        {Theme.NameOfTheme} 
+                        <button className="btn btn-outline-danger float-right" onClick={() => removeTheme(index)}>X</button>
+            
+                </Dropdown.Item>
+                 ))}    
+                    </DropdownButton> 
+                    <br></br>
                           <p style={{color:'white'}}>If you don't found your themes you can add it</p>
                 <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -329,18 +343,7 @@ useEffect(() => {
                 &nbsp;  &nbsp; <button type="button" class="btn btn-outline-danger" onClick={Ajoutertheme} >Add</button>
     
                 </div>
-                  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
-                <span class="notification-badge badge badge-danger">{TheThemes.length}</span>
                 
-                <DropdownButton id="dropdown-item-button" title="Show your themes" variant="secondary"  >
-                        {TheThemes.map((Theme,index) => (
-                        <Dropdown.Item key= {index} style={{color:'black'}}>
-                        {Theme.NameOfTheme} 
-                        <button className="btn btn-outline-danger" onClick={() => removeTheme(index)}>x</button>
-            
-                </Dropdown.Item>
-                 ))}    
-                    </DropdownButton> 
                    
       
                <br></br>
@@ -392,7 +395,7 @@ useEffect(() => {
                     </div>
                     <input type="text" className="form-control" placeholder="Reading Commity"  name="ReadingCommitee" id="ReadingCommitee" onChange={e => setEvaluateur(e.target.value)}  />  &nbsp;  &nbsp; 
                     <button type="button" class="btn btn-outline-danger" onClick={EvalSubmit} >Add</button>
-                </div> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
+                </div> &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;
                 <span class="notification-badge badge badge-danger">{ReadingCommitee.length}</span>
                         <DropdownButton id="dropdown-item-button" title="Show reading commity" variant="secondary"> 
                         {ReadingCommitee.map(({evaluateur},index) => (

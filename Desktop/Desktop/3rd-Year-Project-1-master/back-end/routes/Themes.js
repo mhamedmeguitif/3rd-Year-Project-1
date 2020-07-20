@@ -28,7 +28,7 @@ ThemesRouter.route('/')
                         console.log('Theme created ', Themes);
                         res.statusCode = 200;
                         res.setHeader('Content-Type', 'application/json');
-                        res.json({ status: ' Successful!',  body: Theme});
+                        res.json({ success: true, status: "successful!", body: Theme });
                     })
             }, (err) => next(err))
             .catch((err) => next(err));

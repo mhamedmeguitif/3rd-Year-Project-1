@@ -1,18 +1,21 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Themes = new Schema({
-   NameOfTheme: {
+const Themes = new Schema(
+  {
+    NameOfTheme: {
       type: String,
-      required: true
-   },
-   Description: {
+      unique: true,
+      required: true,
+    },
+    Description: {
       type: String,
-      required: true
-   }
-}, {
-   timestamps: true,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-});
-
-var ThemesSchema = mongoose.model('Theme', Themes);
+var ThemesSchema = mongoose.model("Theme", Themes);
 module.exports = ThemesSchema;

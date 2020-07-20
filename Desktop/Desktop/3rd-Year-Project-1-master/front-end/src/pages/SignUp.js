@@ -3,6 +3,7 @@ import './SignUp.css';
 import {UserContext} from './UserContext'
 import {   useHistory } from "react-router-dom";
 import axios from 'axios' ;
+import SigninModal from '../pages/SigninModal';
 function SignUp() {
 const [username , setUsername] = useState('');
 const [password, setPassword] = useState('');
@@ -16,11 +17,13 @@ const [Etablissement, setEtablissement] = useState('');
 const [compagnie, setCompagnie] = useState('');
 const [err, setErr] = useState(false);
 const [success, setSuccess] = useState(false);
+const [modalShow2, setModalShow2] = React.useState(false);
 const [loading, setLoading] = useState(false);
 const history= useHistory();
 const { user, setUser } = useContext(UserContext);
 function RegisterUser(){
     setLoading(true);
+    setErr(false);
     let data = JSON.stringify({
         username: username,
         password: password,
@@ -41,18 +44,7 @@ axios
     setLoading(false);
     setSuccess(true);
     const login=true;
-    const  id = res.data.body._id;
-    const  token= res.data.token;
-    setUser({ id, username,
-        password,
-        firstname,
-        lastname,
-        Pays,
-        Email,
-        Domaine,
-        specialite,
-        Etablissement,
-        compagnie, login,token});
+    
        
     console.log(res.data);
 })
@@ -67,9 +59,9 @@ function handleSubmit (e){
         setErr(false);
         RegisterUser();
         
-        if (success){
-            history.push("/profile");  
-          }  
+        
+           setSuccess(true); 
+          setModalShow2(true);
           
     }
     else{
@@ -219,7 +211,10 @@ function handleSubmit (e){
            <div className="d-flex justify-content-center links">
               
            </div>
-           {success && <div>Congratulation now you can login !</div>}
+           {success &&<SigninModal
+                           show={modalShow2}
+                           onHide={() => setModalShow2(false)}
+                          />}
        </div>
             </form>
            

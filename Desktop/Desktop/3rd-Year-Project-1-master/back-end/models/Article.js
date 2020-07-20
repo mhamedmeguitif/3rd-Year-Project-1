@@ -9,6 +9,7 @@ const ArticleSchema = new Schema(
     Titre: {
       type: String,
       required: true,
+      
     },
     Theme: {
       type: Schema.Types.ObjectId,
@@ -22,8 +23,8 @@ const ArticleSchema = new Schema(
       required: true,
     },
     Article_Pdf: {
-      type: String,
-      required: true,
+      data: Buffer,
+      contentType: String,
     },
     chercheurId: {
       type: mongoose.Schema.Types.ObjectId,

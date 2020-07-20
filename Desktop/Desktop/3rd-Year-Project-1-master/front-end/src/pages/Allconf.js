@@ -4,7 +4,7 @@ import {UserContext} from './UserContext'
 import axios from 'axios' ;
 import UserNavbar from '../partiels/UserNavbar'
 import Footer from '../partiels/Footer'
-
+import './AllConf.css'
 import galery03 from '../image/galery03.jpg';
 function Allconf() {
      const [confs, setConfs] = useState([])
@@ -29,7 +29,7 @@ useEffect(() => {
 
         <div >
             <UserNavbar/>
-            <br></br> <br></br>
+            <br></br> <br></br><br></br>
                        <div className="carousel-inner" className="conference">
                          <div className="carousel-item active">
                            <div className="row" >
@@ -61,7 +61,7 @@ useEffect(() => {
                                    <p>{conf.LittleDefinitionOfCompany}</p>
                                    
                                    </div>
-                                   <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                                   <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                                    
                                  </div>
                                </div>

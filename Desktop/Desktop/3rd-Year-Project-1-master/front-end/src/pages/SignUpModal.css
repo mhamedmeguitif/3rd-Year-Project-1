@@ -1,8 +1,8 @@
-.special_modal .modal-content{
-    background-color: #000 !important;
-   
- }
+
  .modal-header {
-    color: white;
-    background-color: grey;   
+    color:white;
+    
 } 
+.modal-header, .modal-body, .modal-footer{
+    background: -webkit-linear-gradient(left,#6B3231,#dd0a37,#db565d, #fACCAD);
+}

@@ -50,7 +50,7 @@ const Slideshow = () => {
                      <div className="item-box-blog-body">
                       
                        <div className="item-box-blog-heading">
-                         <a href="#" tabindex="0">
+                         <a href={"/AllConf/"+conf._id} tabindex="0">
                          <h5>{conf.NameOfConference}</h5>
                          </a>
                        </div>
@@ -62,7 +62,7 @@ const Slideshow = () => {
                        <div className="item-box-blog-text">
                        <p>{conf.LittleDefinitionOfCompany}</p>
                        </div>
-                       <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                       <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                        
                      </div>
                    </div>
@@ -95,7 +95,7 @@ const Slideshow = () => {
                      <div className="item-box-blog-body">
                       
                        <div className="item-box-blog-heading">
-                         <a href="#" tabindex="0">
+                         <a href={"/AllConf/"+conf._id} tabindex="0">
                          <h5>{conf.NameOfConference}</h5>
                          </a>
                        </div>
@@ -107,7 +107,7 @@ const Slideshow = () => {
                        <div className="item-box-blog-text">
                        <p>{conf.LittleDefinitionOfCompany}</p>
                        </div>
-                       <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                       <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                        
                      </div>
                    </div>
