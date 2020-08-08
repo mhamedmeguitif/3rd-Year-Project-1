@@ -2,8 +2,8 @@ import axios from 'axios' ;
 
 import './SignIn.css';
 import {UserContext} from './UserContext'
-import {  Link, useHistory } from "react-router-dom";
-import React, { useEffect, useState,useContext } from 'react';
+import {  useHistory } from "react-router-dom";
+import React, {  useState,useContext } from 'react';
 function SignIn() {
     
     const [username, setUsername] = useState('');
@@ -56,6 +56,7 @@ function SignIn() {
        
         })
     .catch((err)=>{
+        setErr(true);
         console.log(err)
        
     })
@@ -77,13 +78,7 @@ function SignIn() {
             setErr(true);
         }
     }
-    useEffect(()=>{
-        
-
-            loginUser();
-        
-
-    });
+   
         return (
             <div className="App4">
          
@@ -93,7 +88,7 @@ function SignIn() {
   <div id="root"></div>
 <div className="container">
 <div className="d-flex justify-content-center h-100">
-    <div className="card">
+    <div className="card3">
        
         <div className="card-body">
             <form onSubmit={handleSubmit}>
@@ -119,13 +114,15 @@ function SignIn() {
                 <div className="form-group">
                     <input type="submit" value="Login" className="btn float-right login_btn"/>
                 </div>
+                <br></br> 
             </form>
         </div>
         <div className="card-footer">
             <div className="d-flex justify-content-center links">
-                Don't have an account?<Link to="/signUp">Sign Up</Link>
+                Don't have an account?<a href="#" >Sign Up</a>
 
             </div>
+            <br></br>
             <div className="d-flex justify-content-center">
                 <a href="#">Forgot your password?</a>
             </div>

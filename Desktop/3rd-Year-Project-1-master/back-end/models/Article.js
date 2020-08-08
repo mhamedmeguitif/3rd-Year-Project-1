@@ -3,17 +3,17 @@ const Schema = mongoose.Schema;
 const ArticleSchema = new Schema(
   {
     les_Auteur: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
+      type: String 
     }],
     Titre: {
       type: String,
       required: true,
+      
     },
-    Theme: {
+    Theme: [{
       type: Schema.Types.ObjectId,
       ref: 'Theme'
-    },
+    }],
     les_mots_clés: [{
       type: String 
     }],
@@ -22,8 +22,8 @@ const ArticleSchema = new Schema(
       required: true,
     },
     Article_Pdf: {
-      type: String,
-      required: true,
+      data: Buffer,
+      contentType: String,
     },
     chercheurId: {
       type: mongoose.Schema.Types.ObjectId,

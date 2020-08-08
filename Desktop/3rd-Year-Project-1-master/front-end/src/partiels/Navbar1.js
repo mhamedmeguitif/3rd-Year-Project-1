@@ -33,14 +33,14 @@ function Navbar1() {
     <Nav>
    
     
-                            <a type="button" className="btn btn-danger" onClick={() => setModalShow(true)} style={{color:'white'}} > Log-in</a>
+                            <a type="button" className="btn btn-outline-danger " onClick={() => setModalShow(true)} style={{color:'white',fontSize:15}} > Log-in  </a>
                             <SigninModal
                            show={modalShow}
                            onHide={() => setModalShow(false)}
                           />
                          &nbsp;  &nbsp;  
                         
-                            <a type="button" className="btn btn-danger" onClick={() => setModalShow2(true)} style={{color:'white'}} > Sign-Up</a>
+                            <a type="button" className="btn btn-danger  " onClick={() => setModalShow2(true)} style={{color:'white',fontSize:15}} > Sign-Up</a>
                             <SignUpModal
                            show={modalShow2}
                            onHide={() => setModalShow2(false)}

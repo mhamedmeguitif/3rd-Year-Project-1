@@ -17,12 +17,12 @@ var UserSchema = new Schema(
       type: String,
       required: true,
     },
-   
+
     Email: {
       type: String,
       required: true,
     },
-    Domaine : {
+    Domaine: {
       type: String,
       required: true,
     },
@@ -39,10 +39,13 @@ var UserSchema = new Schema(
       default: false,
     },
 
-  
     compagnie: {
       type: String,
       required: true,
+    },
+    photo: {
+      data: Buffer,
+      contentType: String,
     },
   },
   {

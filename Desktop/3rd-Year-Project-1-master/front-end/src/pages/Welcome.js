@@ -2,12 +2,17 @@ import React from 'react'
 import Navbar1 from '../partiels/Navbar1';
 import Footer from '../partiels/Footer';
 import a from '../image/a.png';
+import Card from 'react-bootstrap/Card'
 import galery03 from '../image/galery03.jpg';
 import background01 from '../pages/background01.jpg';
 import pic from '../pic.jpg';
 import './Welcome.css';
 import { Slide } from 'react-slideshow-image';
+import SigninModal from '../pages/SigninModal';
+
 function Welcome() {
+  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow2, setModalShow2] = React.useState(false);
    //fonction pour le back ground 
   var sectionStyle = {
     width: "100%",
@@ -50,7 +55,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                            
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -62,8 +67,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
-                            
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div>
                           </div>
                         </div>
                       </div>
@@ -78,7 +86,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                             
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -90,7 +98,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div>
                            
                           </div>
                         </div>
@@ -106,7 +118,11 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                           <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div>
                            
                           </div>
                         </div></div></div></div>
@@ -128,7 +144,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                            
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -140,7 +156,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                             <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div> 
                             
                           </div>
                         </div>
@@ -156,7 +176,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                             
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -168,7 +188,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt">  <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div> </div>
                            
                           </div>
                         </div>
@@ -184,7 +208,12 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                           <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a>
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          />
+                             </div>
                            
                           </div>
                         </div></div></div></div>
@@ -205,7 +234,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                            
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -217,8 +246,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
-                            
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> </div>
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          />
                           </div>
                         </div>
                       </div>
@@ -233,7 +265,7 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                             
                             <div className="item-box-blog-heading">
-                              <a href="#" tabindex="0">
+                              <a tabindex="0">
                                 <h5>News Title</h5>
                               </a>
                             </div>
@@ -245,7 +277,11 @@ const Slideshow = () => {
                             <div className="item-box-blog-text">
                               <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div>
                            
                           </div>
                         </div>
@@ -261,7 +297,11 @@ const Slideshow = () => {
                           <div className="item-box-blog-body">
                           <p>Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing. Lorem ipsum dolor.</p>
                             </div>
-                            <div className="mt"> <a href="#" tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                            <div className="mt"> <a tabindex="0" className="btn bg-blue-ui white read" onClick={() => setModalShow(true)}>read more</a> 
+                            <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          /> </div>
                            
                           </div>
                         </div></div></div></div>
@@ -282,7 +322,12 @@ const Slideshow = () => {
          <h1 >Wellcome to <span style={{color: "indianred"}}>MyConf-Time</span>... </h1>
          <h6>Drop off your article and attend conferences now!</h6>
          <br></br><br></br>
-         <button type="button" className="btn btn-danger" id="btn"> Inscription</button>
+         <button type="button" className="btn btn-danger" id="btn" onClick={() => setModalShow(true)}> Start Now</button>
+         <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          />
+          
          <br></br><br></br><br></br><br></br><br></br><br></br><br></br> <br></br><br></br><br></br> <br></br><br></br><br></br> <br></br>
          <div className="text-center"> 
            <h2>Conferences for you : </h2>
@@ -292,7 +337,11 @@ const Slideshow = () => {
                          <br></br><br></br><br></br>
           
           
-          <a href="#" className="btn btn-dark btn-lg  " role="button" aria-pressed="true">See more</a>
+          <a href="#" className="btn btn-dark btn-lg  " role="button" aria-pressed="true" onClick={() => setModalShow(true)}>See more</a>
+          <SigninModal
+                           show={modalShow}
+                           onHide={() => setModalShow(false)}
+                          />
           </div>
         
            <br></br><br></br><br></br>
@@ -404,29 +453,32 @@ const Slideshow = () => {
             <a href="#" class="btn btn-dark  " role="button" aria-pressed="true">Voir plus de conférences qui sont déja faites</a>
          </div><br></br> <br></br>
          <br></br> <br></br><br></br> 
+         <br></br><br></br> <br></br>
 
-                 <div className="partenaires" >
-                 <br></br> <br></br><br></br>
-           <h2>Nos partenaires</h2> 
-           <div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-3">
-            <div class="card" >
+         <h2>Our partenaires :</h2> 
+         <br></br> 
+         <Card
+      bg="Dark"
+   
+    
+    style={{ width: '18rem' }}
+    className="mb-2"
+  >
+    <Card.Header>The higher school of computer science of Sidi Bel Abbes (ESI-SBA) has as main mission the training of state engineer in computer science.</Card.Header>
+    <Card.Body>
+      <Card.Title>  </Card.Title>
+      <Card.Text>
       <img class="card-img-top" src={a} alt="Card image cap"/>
-      <div class="card-body">
-        <p class="card-text">The higher school of computer science of Sidi Bel Abbes (ESI-SBA) has as main mission the training of state engineer in computer science.</p>
       
-        <a href="#" class="">Esi-Sba</a>,
-        <span class="_tm-user-role">
+      </Card.Text>
+    </Card.Body>
+  </Card>
           
-          higher school of computer science</span>
-      </div>
-    </div></div></div></div>
-           <br></br><br></br> <br></br><br></br> <br></br><br></br> <br></br>
+           <br></br><br></br> <br></br><br></br> <br></br>
            <Footer/>
          </div>
         
-       </div>
+       
 
         
       

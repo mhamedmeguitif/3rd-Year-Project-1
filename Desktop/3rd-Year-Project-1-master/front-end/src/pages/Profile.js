@@ -1,31 +1,24 @@
 import React, {useContext, useEffect} from 'react'
 import './profile.css'
-import {   useHistory } from "react-router-dom";
+
 import {UserContext} from './UserContext'
 import UserNavbar from '../partiels/UserNavbar'
 import Footer from '../partiels/Footer'
 function Profile ({match}) {
     const { user } = useContext(UserContext); 
-    const history= useHistory();
-    useEffect(() => {
-        if (user.login=false){
-            history.push("/welcome");  
-        }
-        return () => {
-            //
-        }
-    })
+   
+    
       return (
       <div classeName="app3" >
         <UserNavbar/>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+    
 <div className="container">
     <div className="view-account">
         <section className="module">
             <div className="module-inner">
                 <div className="side-bar">
                     <div className="user-info">
-                        <img className="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/>
+                        <img className=" img-circle img-responsive center-block" src="https://img.icons8.com/cotton/64/000000/gender-neutral-user.png" alt=""/>
                         <ul className="meta list list-unstyled">
                             <li className="name">
                                 <label className="label label-info">{user.username}</label>
@@ -39,7 +32,7 @@ function Profile ({match}) {
         					<li className="active"><a href="#"><span className="fa fa-user"></span> Profile</a></li>
         					<li><a href="#"><span className="fa fa-cog"></span> Settings</a></li>
                             <li><a href="/profile/myConf"><span className="fa fa-credit-card"></span> My Conferences</a></li>
-        					<li><a href="user-drive.html"><span className="fa fa-th"></span> My articles</a></li>
+        					<li><a href="/profile/articles"><span className="fa fa-th"></span> My articles</a></li>
         					<li><a href="user-drive.html"><span className="fa fa-th"></span> My evaluations</a></li>
         					<li><a href="#"><span className="fa fa-clock-o"></span> Reminders</a></li>
         				</ul>
@@ -52,10 +45,12 @@ function Profile ({match}) {
                             
                             <div className="form-group avatar">
                                 <figure className="figure col-md-2 col-sm-3 col-xs-12">
-                                    <img className="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/>
+                                    <img className="img-rounded img-responsive" src="https://img.icons8.com/cotton/64/000000/gender-neutral-user.png" alt=""/>
                                 </figure>
                                 <div className="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input type="file" className="file-uploader pull-left"/>
+                                &nbsp;  &nbsp;   &nbsp;   
+                                
+                                  <input type="file" className="file-uploader pull-left"/>
                                     
                                 </div>
                             </div>
@@ -103,10 +98,10 @@ function Profile ({match}) {
                             
                             
                         </fieldset>
-                       
+                       <br></br>
                         <div className="form-group">
                             <div className="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input className="btn btn-danger" type="submit" value="Update Profile"/>
+                                <input className="btn btn-outline-danger float-right" type="submit" value="Update Profile"/>
                             </div>
                         </div> 
                         

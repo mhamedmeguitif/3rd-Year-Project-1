@@ -1,33 +1,56 @@
-import React , {useEffect, useContext } from 'react'
+import React , {useEffect, useContext, useState } from 'react'
 import '../profile.css'
 import AjouterConfModal from './AjouterConfModal'
-import {   useHistory } from "react-router-dom";
+import axios from 'axios' ;
 import {UserContext} from '../UserContext'
 import UserNavbar from '../../partiels/UserNavbar'
 import Footer from '../../partiels/Footer'
 function AllMyConf() {
     const [modalShow, setModalShow] = React.useState(false);
     const { user } = useContext(UserContext); 
-    const history= useHistory();
+    const [AllConfs, setAllConfs] = useState([])
+   function AfficherConf (){
+    let data = JSON.stringify({
+        _id:user.id,
+        username: user.username,
+        password: user.password,
+        firstname:user.firstname,
+        lastname: user.lastname,
+        Pays: user.Pays,
+        Email: user.Email,
+        Domaine: user.Domaine,
+        specialite: user.specialite,
+        Etablissement: user.Etablissement,
+        compagnie: user.compagnie 
+     });
+      
+    axios
+    .get ('http://localhost:3000/conferences/user',{data},{headers:{"Content-Type" : "application/json" , 'Accept' : 'application/json',
+    'Authorization' : `Bearer ${user.token}`}})
+    .then( (res) =>{
+        console.log('confs');
+        const t =res.data;
+        setAllConfs(t);
+        console.log(AllConfs);
+    
+    })
+   }
+
     useEffect(() => {
-        if (user.login=false){
-            history.push("/welcome");  
-        }
-        return () => {
-            //
-        }
+      AfficherConf ();
+    
     })
       return (
       <div classeName="app3" >
         <UserNavbar/>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+        
 <div className="container">
     <div className="view-account">
         <section className="module">
             <div className="module-inner">
                 <div className="side-bar">
                     <div className="user-info">
-                        <img className="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/>
+                        <img className="img-circle img-responsive center-block" src="https://img.icons8.com/cotton/64/000000/gender-neutral-user.png" alt=""/>
                         <ul className="meta list list-unstyled">
                             <li className="name">
                                 <label className="label label-info">{user.username}</label>
