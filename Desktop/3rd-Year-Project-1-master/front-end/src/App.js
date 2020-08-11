@@ -12,6 +12,7 @@ import AllMyConf from './pages/User_conf_pages/AllMyConf';
 import { useLocalStorage } from './hooks';
 import AllmyArticles from "./pages/User_article_pages/AllmyArticles";
 import PublicConf from "./pages/PublicConf";
+import AllEval from "./pages/User_eval_pages/AllEval";
 
 
 function App() { 
@@ -48,7 +49,7 @@ function App() {
             <PrivateRoute exact path="/profile/myConf" component={AllMyConf} />
 <PrivateRoute exact path="/profile/articles" component={AllmyArticles} />
         <PrivateRoute exact path="/Allconf/:id" component={PublicConf} />
-            
+        <PrivateRoute exact path="/profile/eval" component={AllEval} />
       </BrowserRouter>
     
   </div></UserContext.Provider>

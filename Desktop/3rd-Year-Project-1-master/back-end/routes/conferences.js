@@ -61,6 +61,7 @@ ConferencesRouter.route("/")
       )
       .catch((err) => next(err));
   })
+  
 
   .put(authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
@@ -139,7 +140,7 @@ ConferencesRouter.route("/:conference")
       .catch((err) => next(err));
   });
 
-  /* Partie 4*/
+/* Partie 4*/
 ConferencesRouter.route("/:search").get((req, res, next) => {
   Confer.find({ NameOfConference: req.params.conference })
     .populate("TheThemes")

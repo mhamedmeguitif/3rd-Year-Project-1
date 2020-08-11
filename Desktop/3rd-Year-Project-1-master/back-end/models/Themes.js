@@ -5,6 +5,7 @@ const Themes = new Schema(
     NameOfTheme: {
       type: String,
       unique: true,
+      dropDups: true , 
       required: true,
     },
     Description: {

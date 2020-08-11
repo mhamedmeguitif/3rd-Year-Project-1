@@ -4,7 +4,8 @@ const ConfSchema = new Schema({
    NameOfConference: {
       type : String,
       required : true, 
-      unique : true 
+      unique : true  , 
+      dropDups: true
    },
    NameOfCompany: {
       type : String,
