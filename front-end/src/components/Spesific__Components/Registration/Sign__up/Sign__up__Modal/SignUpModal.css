@@ -1,0 +1,8 @@
+
+ .modal-header {
+    color:white;
+    
+} 
+.modal-header, .modal-body, .modal-footer{
+    background: -webkit-linear-gradient(left,#6B3231,#dd0a37,#db565d, #fACCAD);
+}
