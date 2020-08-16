@@ -28,9 +28,13 @@ uploadRouter.use(bodyParser.json());
 
 uploadRouter
   .route("/")
-  .get(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
-    res.statusCode = 403;
-    res.end("GET operation not supported on /imageUpload");
+  .get(authenticate.verifyUser, (req, res, next) => {
+    User.findById(req.user._id).then((user)=>{
+      var path1= user.photo; 
+      res.statusCode = 200 ;  
+      res.sendfile(path1);
+    }).catch(err=>next(err)); 
+     
   })
   .post(
     authenticate.verifyUser,

@@ -22,8 +22,8 @@ const ArticleSchema = new Schema(
       required: true,
     },
     Article_Pdf: {
-      data: Buffer,
-      contentType: String,
+      type : String , 
+      default : "" 
     },
     chercheurId: {
       type: mongoose.Schema.Types.ObjectId,

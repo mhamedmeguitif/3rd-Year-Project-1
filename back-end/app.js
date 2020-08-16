@@ -54,7 +54,7 @@ app.use(session({
   store: new FileStore()
 }));
 
-
+app.use(express.static('public'))
 app.use(passport.initialize()); 
 app.use(passport.session());
 app.use(cors());

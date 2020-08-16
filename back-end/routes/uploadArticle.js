@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const authenticate = require("../authenticate");
 const multer = require("multer");
-var User = require("../models/Article");
+var Article = require("../models/Article");
 
 /*-----  Multer Configuration ----*/
 const storage = multer.diskStorage({
@@ -22,25 +22,31 @@ const ArticleFileFilter = (req, file, cb) => {
   cb(null, true);
 };
 
-const upload = multer({ storage: storage, fileFilter: ArticleFileFilter });
+const upload = multer({ storage: storage, fileFilter:ArticleFileFilter});
 
 const uploadRouter = express.Router();
 
 uploadRouter.use(bodyParser.json());
 
 uploadRouter
-  .route("/")
+  .route("/:article")
   .get(authenticate.verifyUser, (req, res, next) => {
-    res.statusCode = 403;
-    res.end("GET operation not supported on /ArticleUpload");
-  })
+    Article.findById(req.params.article).then((article)=>{
+      var path1= article.Article_Pdf; 
+      res.statusCode = 200 ;  
+      res.sendfile(path1);
+    }).catch(err=>next(err)); 
+   
+
+  });
+  uploadRouter.route('/')
   .post(
     authenticate.verifyUser,
     upload.single("ArticleFile"),
     (req, res, next) => {
       const userId = req.user._id;
       console.log(req.user._id);
-      User.findByIdAndUpdate(
+      Article.findByIdAndUpdate(
         userId,
         { Article_Pdf: req.file.path },
         { new: true }
