@@ -5,6 +5,7 @@ import axios from 'axios' ;
 import {UserContext} from '../../../Config__Global/UserContext'
 import UserNavbar from '../../../Global__components/NavBar/NavBarUser/Navbar1'
 import Footer from '../../../Global__components/Footer/Footer'
+
 function AllMyConf() {
     const [modalShow, setModalShow] = React.useState(false);
     const { user } = useContext(UserContext); 
@@ -22,11 +23,17 @@ function AllMyConf() {
         specialite: user.specialite,
         Etablissement: user.Etablissement,
         compagnie: user.compagnie 
-     });
-      
+     }); 
     axios
-    .get ('http://localhost:3000/conferences/user',{data},{headers:{"Content-Type" : "application/json" , 'Accept' : 'application/json',
-    'Authorization' : `Bearer ${user.token}`}})
+    .get ('http://localhost:3000/conferences/user',
+    {headers:
+        {
+        "Content-Type" : "application/json",
+         'Accept' : 'application/json',
+         'Authorization' : `Bearer ${user.token}`
+        }
+    }
+    )
     .then( (res) =>{
         console.log('confs');
         const t =res.data;

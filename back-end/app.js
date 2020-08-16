@@ -21,7 +21,9 @@ const  evaluationfinalRouter = require ('./routes/EvaluationFinal');
 const  participationRouter = require('./routes/Participant');
 const  vouxRouter = require("./routes/FicheDeVoux") ; 
 const  themesRouter = require("./routes/Themes");
-const  NotificationRouter = require("./routes/Notification"); 
+const  NotificationRouter = require("./routes/Notification");
+const  UploadImage = require('./routes/uploadImages');
+const  UploadArticale = require('./routes/uploadArticle')  
 const  config = require('./config');
 
 const url = config.mongoUrl;
@@ -65,7 +67,8 @@ app.use('/Evaluation' , evaluationRouter);
 app.use('/participation' , participationRouter);
 app.use('/evaluationfinal' , evaluationfinalRouter);
 app.use('/Article',articleRouter);
-
+app.use('/aploadImage' , UploadImage);
+app.use('/uploadingArticle',UploadArticale );  
 
 
 

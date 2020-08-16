@@ -49,7 +49,7 @@ router.post("/signup", (req, res, next) => {
     specialite: req.body.specialite,
     Etablissement: req.body.Etablissement,
     compagnie: req.body.compagnie,
-    avatar: "profile.png",
+    photo: "profile.png",
   });
   User.register(user, req.body.password, (err, user) => {
     if (err) {
