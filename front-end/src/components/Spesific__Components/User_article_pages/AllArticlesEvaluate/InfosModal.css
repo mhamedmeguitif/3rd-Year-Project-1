@@ -1,0 +1,70 @@
+._infos_modal {
+  margin: 8em auto !important;
+}
+
+._primary_btn {
+  width: 100px;
+  color: white !important;
+  background-color: var(--primary) !important;
+}
+
+._secondary_btn {
+  width: 100px;
+  color: white !important;
+  background-color: var(--secondary) !important;
+}
+
+._modal_content {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+._names {
+  width: 150px;
+}
+
+._names p,
+._data p,
+._evaluate_choices p {
+  text-align: left;
+}
+
+/* Evaluate Modal */
+._evaluate_modal,
+._evaluate_modal.error.reject {
+  margin: 14rem auto !important;
+}
+
+._evaluate_modal.error {
+  margin: 12rem auto !important;
+}
+
+._evaluate_modal.reject {
+  margin: 16rem auto !important;
+}
+
+._evaluate_choices {
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+._evaluate_choices.reject {
+  height: 60px;
+}
+
+._evaluate_modal .message {
+  width: 200px;
+}
+
+textarea.error {
+  color: #9f3a38 !important;
+  background-color: #fff6f6 !important;
+  border-color: #e0b4b4 !important;
+}
+
+textarea.error::placeholder {
+  color: #e0b4b4 !important;
+}
