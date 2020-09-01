@@ -15,6 +15,7 @@ const [Domaine, setDomaine] = useState('');
 const [specialite, setSpecialite] = useState('');
 const [Etablissement, setEtablissement] = useState('');
 const [compagnie, setCompagnie] = useState('');
+const [photo, setPhoto] = useState('https://img.icons8.com/cotton/64/000000/gender-neutral-user.png');
 const [err, setErr] = useState(false);
 const [success, setSuccess] = useState(false);
 const [modalShow2, setModalShow2] = React.useState(false);
@@ -25,6 +26,7 @@ function RegisterUser(){
     setLoading(true);
     setErr(false);
     let data = JSON.stringify({
+        photo : "https://img.icons8.com/cotton/64/000000/gender-neutral-user.png", 
         username: username,
         password: password,
         firstname:firstname,
@@ -34,7 +36,7 @@ function RegisterUser(){
         Domaine: Domaine,
         specialite: specialite,
         Etablissement: Etablissement,
-        compagnie: compagnie 
+        compagnie: compagnie,  
      });
       
       

@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.card-dec {
+  /* height: 170px; */
+}
+.Image__Container img {
+  width: 49%;
+  height: 177%;
+  border-radius: 50%;
+  margin-top: 0%;
+  margin-left: -31%;
+}
+.Image__Container {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+}
+.list__Article {
+  width: 650px;
+  height: 600px;
+  overflow-y: auto;
+  margin: 0 auto;
+}
+.font__simple {
+  font-family: "Roboto Mono", monospace;
+}
+.card-title,
+.card-theme,
+.card-auteur {
+  font-family: "Roboto Mono", monospace;
+  text-align: left;
+}
+.card-title {
+  font-size: 22px;
+  color: #f9773b;
+}
+.card-theme {
+  margin-left: 1px;
+  font-size: 13px;
+  color: #2c2b2b;
+}
+.card-auteur {
+  font-size: 12px;
+  color: #2c2b2b;
+}
+.card__content {
+  height: 120px;
+  padding-top: 0;
+}
+.btn__margleft {
+  margin-top: -43px;
+  margin-left: 71%;
+  width: 101px;
+  color: #fff;
+}
+.card-body {
+  margin-left: -16%;
+}
+
+.Modal-Header,
+.Modal-Body {
+  /* background:wheat ; */
+}
+.card__Style {
+  width: 600px;
+  margin: 0 auto;
+  /* height: 120px; */
+  /* margin-bottom: 5px; */
+  border-radius: 2%;
+}
+.ImageContainer__Modal {
+  margin-top : 15px; 
+  width: 58px;
+  height: 72px;
+  position: relative;
+}
+.ImageContainer__Modal .image1 {
+  border-radius: 50%;
+  
+  position: absolute;
+  background: #f9f9fb;
+  width: 48%;
+  height: 103%;
+  margin-top: -3%;
+  margin-left: -42%;
+}
+
+.card__content__Modal {
+  margin-top: 0px;
+}
+
+.User__Container {
+  height: 500px;
+  overflow-y: auto;
+}
+.btn__left {
+  margin-left: 75%;
+  background: #aa1d29;
+  color: #fff;
+  margin-top: -4px;
+}
+.btn__left span {
+  color: #fff;
+}
+.Modal-Header {
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+}
+.card__Style__User {
+  margin-bottom: 12px;
+}
+.card-title__Modal {
+  text-align: left;
+  font-size: 22px;
+  margin-top: -10%;
+    margin-left: -3%;
+
+}
+
+
+.btn__left__2 {
+  background: #e34f33;
+  margin-top: -7%;
+  margin-left: 78%;
+}
+.card__Style__User {
+  height: 95px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-User-Domaine{
+  text-align: left;
+  margin-left: -8px;
+}

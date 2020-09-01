@@ -27,27 +27,13 @@ const upload = multer({ storage: storage, fileFilter:ArticleFileFilter});
 const uploadRouter = express.Router();
 
 uploadRouter.use(bodyParser.json());
-
-uploadRouter
-  .route("/:article")
-  .get(authenticate.verifyUser, (req, res, next) => {
-    Article.findById(req.params.article).then((article)=>{
-      var path1= article.Article_Pdf; 
-      res.statusCode = 200 ;  
-      res.sendfile(path1);
-    }).catch(err=>next(err)); 
-   
-
-  });
-  uploadRouter.route('/')
+  uploadRouter.route('/:article')
   .post(
-    authenticate.verifyUser,
     upload.single("ArticleFile"),
     (req, res, next) => {
-      const userId = req.user._id;
-      console.log(req.user._id);
+      const ArticleId = req.params.article;
       Article.findByIdAndUpdate(
-        userId,
+        ArticleId,
         { Article_Pdf: req.file.path },
         { new: true }
       )
@@ -62,12 +48,25 @@ uploadRouter
         .catch((err) => next(err));
     }
   )
-  .put(authenticate.verifyUser, (req, res, next) => {
-    res.statusCode = 403;
-    res.end("PUT operation not supported on /imageUpload");
-  })
-  .delete(authenticate.verifyUser, (req, res, next) => {
-    res.statusCode = 403;
-    res.end("DELETE operation not supported on /imageUpload");
-  });
+  .put(
+    authenticate.verifyUser,
+    upload.single("ArticleFile"),
+    (req, res, next) => {
+      const ArticleId = req.params.article;
+      Article.findByIdAndUpdate(
+        ArticleId,
+        { Article_Pdf: req.file.path },
+        { new: true }
+      )
+        .then(
+          (article) => {
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
+            res.json(article);
+          },
+          (err) => next(err)
+        )
+        .catch((err) => next(err));
+    }
+  );
 module.exports = uploadRouter;

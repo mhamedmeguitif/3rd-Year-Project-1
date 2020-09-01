@@ -53,11 +53,11 @@ app.use(session({
   resave: false,
   store: new FileStore()
 }));
-
-app.use(express.static('public'))
+app.use(cors()); 
+app.use('/public', express.static('public'));
 app.use(passport.initialize()); 
 app.use(passport.session());
-app.use(cors());
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/conferences',conferenceRouter );

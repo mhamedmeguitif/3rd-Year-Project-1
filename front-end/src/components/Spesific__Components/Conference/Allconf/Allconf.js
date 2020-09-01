@@ -7,8 +7,9 @@ import Footer from '../../../Global__components/Footer/Footer'
 import './AllConf.css'
 import galery03 from '../../../Global__Image/galery03.jpg';
 function Allconf() {
-     const [confs, setConfs] = useState([])
- const { user, setUser } = useContext(UserContext);
+
+     const [confs, setConfs] = useState([])//conféreces
+     const { user, setUser } = useContext(UserContext);//user__Information
  function AffConf(){
 
     axios
@@ -30,13 +31,12 @@ useEffect(() => {
         <div >
             <UserNavbar/>
             <br></br> <br></br><br></br>
+           
                        <div className="carousel-inner" className="conference">
                          <div className="carousel-item active">
                            <div className="row" >
-{confs.map((conf,index) => (
+    {confs.map((conf,index) => (
                  
-              
-            
                              <div className="col-md-4" key= {index}>
                                <div className="item-box-blog">
                                  <div className="item-box-blog-image">

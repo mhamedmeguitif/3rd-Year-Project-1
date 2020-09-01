@@ -10,11 +10,10 @@ const ArticleSchema = new Schema(
       required: true,
       
     },
-    Theme: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Theme'
-    }],
-    les_mots_clés: [{
+    Theme: {
+      type:String
+    },
+    les_mots_cles: [{
       type: String 
     }],
     Resumer: {
@@ -26,14 +25,19 @@ const ArticleSchema = new Schema(
       default : "" 
     },
     chercheurId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
     ConferenceId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "conference",
+      type: Schema.Types.ObjectId,
+      ref: 'conference',
     },
+    Final :  {
+      types : Boolean , 
+      default : false 
+    }
   },
+    
   {
     timestamps: true,
   }

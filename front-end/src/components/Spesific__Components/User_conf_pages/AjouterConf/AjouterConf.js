@@ -169,25 +169,19 @@ axios
 .then( (res) =>{
     setLoading(false);
     setSuccess(true);
-   
     console.log(res.data);
 })
 .catch((err)=>{
     console.log(err)
-    
 })
    }
 
 
    function handleSubmit (e){
     e.preventDefault();
-
     AjoutConf();
     if (NameOfConference && NameOfCompany && TheDeadline  && LittleDefinitionOfCompany   && AboutCompany && TheThemes  && Eligibility && Funding &&  ConditionOfApplicant &&  OpportunityInformation &&  EducationalConditions && ConditionOfArtical  && ReadingCommitee){
         setErr(false);
-        
-        
-       
             history.push("/profile/myConf");  
           
           

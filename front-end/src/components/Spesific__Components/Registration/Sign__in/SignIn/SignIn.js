@@ -28,7 +28,6 @@ function SignIn() {
     .then( (res) =>{
         setLoading(false);
         setSuccess(true);
-        
         const login=true;
         const  id = res.data.body._id;
         const  firstname = res.data.body.nom_de_famille;
@@ -37,22 +36,28 @@ function SignIn() {
         const Email= res.data.body.Email;
         const Domaine = res.data.body.Domaine;
         const specialite =  res.data.body.specialite;
+        const photo = res.data.body.photo;   
         const Etablissement= res.data.body.Etablissement;
         const  compagnie= res.data.body.compagnie;
         const  token= res.data.token;
-        setUser({id,username,
-        password,
-        firstname,
-        lastname,
-        Pays,
-        Email,
-        Domaine,
-        specialite,
-        Etablissement,
-        compagnie, login,token});
+        setUser({  id, 
+                   username,
+                   password,
+                   firstname,
+                   lastname,
+                   photo,
+                   Pays,
+                   Email,
+                   Domaine,
+                   specialite,
+                   Etablissement,
+                   compagnie, 
+                   login,
+                   token
+                });
        
        
-        console.log(res.data);
+        console.log(res);
        
         })
     .catch((err)=>{

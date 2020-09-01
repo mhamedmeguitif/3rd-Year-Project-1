@@ -44,7 +44,6 @@ ConferencesRouter.route("/")
 
   .post(authenticate.verifyUser, (req, res, next) => {
     req.body.ConferenceOwner = req.user._id;
-
     Confer.create(req.body)
       .then(
         (conference) => {

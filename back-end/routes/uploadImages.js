@@ -2,14 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const authenticate = require("../authenticate");
 const multer = require("multer");
+const cors = require("./cors");
 var User = require("../models/User");
 
+var today = new Date() ; 
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/files/profile__images");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const fileName = file.originalname.toLowerCase().split(' ').join('-');
+    cb(null,date + '-' + fileName)
   },
 });
 
@@ -25,7 +29,7 @@ const upload = multer({ storage: storage, fileFilter: imageFileFilter });
 const uploadRouter = express.Router();
 
 uploadRouter.use(bodyParser.json());
-
+ 
 uploadRouter
   .route("/")
   .get(authenticate.verifyUser, (req, res, next) => {
@@ -42,7 +46,9 @@ uploadRouter
     (req, res, next) => {
       const userId = req.user._id;
       console.log(req.user._id);
-      User.findByIdAndUpdate(userId, { photo: req.file.path }, { new: true })
+      const url = req.protocol + '://' + req.get('host'); 
+      const update = url + '/public/files/profile__images/' + req.file.filename; 
+      User.findByIdAndUpdate(userId, { photo: update}, { new: true })
         .then(
           (user) => {
             res.statusCode = 200;
@@ -66,5 +72,8 @@ uploadRouter
       res.end("DELETE operation not supported on /imageUpload");
     }
   );
+  
+    
+
 
 module.exports = uploadRouter;
