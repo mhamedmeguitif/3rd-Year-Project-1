@@ -21,7 +21,9 @@ const  evaluationfinalRouter = require ('./routes/EvaluationFinal');
 const  participationRouter = require('./routes/Participant');
 const  vouxRouter = require("./routes/FicheDeVoux") ; 
 const  themesRouter = require("./routes/Themes");
-const  NotificationRouter = require("./routes/Notification"); 
+const  NotificationRouter = require("./routes/Notification");
+const  UploadImage = require('./routes/uploadImages');
+const  UploadArticale = require('./routes/uploadArticle')  
 const  config = require('./config');
 
 const url = config.mongoUrl;
@@ -51,11 +53,11 @@ app.use(session({
   resave: false,
   store: new FileStore()
 }));
-
-
+app.use(cors()); 
+app.use('/public', express.static('public'));
 app.use(passport.initialize()); 
 app.use(passport.session());
-app.use(cors());
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/conferences',conferenceRouter );
@@ -65,7 +67,8 @@ app.use('/Evaluation' , evaluationRouter);
 app.use('/participation' , participationRouter);
 app.use('/evaluationfinal' , evaluationfinalRouter);
 app.use('/Article',articleRouter);
-
+app.use('/aploadImage' , UploadImage);
+app.use('/uploadingArticle',UploadArticale );  
 
 
 

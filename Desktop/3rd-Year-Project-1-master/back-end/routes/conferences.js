@@ -44,7 +44,6 @@ ConferencesRouter.route("/")
 
   .post(authenticate.verifyUser, (req, res, next) => {
     req.body.ConferenceOwner = req.user._id;
-
     Confer.create(req.body)
       .then(
         (conference) => {
@@ -88,7 +87,7 @@ ConferencesRouter.route("/:conference")
     Confer.findById(req.params.conference)
       .populate("TheThemes")
       .populate("ConferenceOwner")
-
+      .populate("ReadingCommitee")
       .then(
         (conference) => {
           res.statusCode = 200;

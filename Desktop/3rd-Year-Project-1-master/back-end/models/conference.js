@@ -59,7 +59,10 @@ const ConfSchema = new Schema({
       type : Boolean ,
       default : false
    },
-   ReadingCommitee: [String]
+   ReadingCommitee: [{
+      type: Schema.Types.ObjectId,
+      ref: "User"
+   }]
 }, {
    timestamps: true,
 

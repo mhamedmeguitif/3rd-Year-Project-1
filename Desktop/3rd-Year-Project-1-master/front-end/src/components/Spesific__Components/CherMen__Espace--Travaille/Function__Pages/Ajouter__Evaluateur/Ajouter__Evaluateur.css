@@ -1,0 +1,16 @@
+.Add__style{
+    font-family: 'Roboto Mono', monospace;
+
+}
+.btn__Submit{
+    margin-left: 80%;
+    background: #333;
+}
+.btn_modifier{
+    margin-top: -9%;
+    margin-left: 74%;
+    background: #333;   
+}
+.btn_modifier span {
+    color : #fff
+}

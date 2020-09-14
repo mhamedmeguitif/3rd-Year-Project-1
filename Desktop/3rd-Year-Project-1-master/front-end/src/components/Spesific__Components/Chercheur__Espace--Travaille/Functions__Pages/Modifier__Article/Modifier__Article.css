@@ -1,0 +1,74 @@
+ul li a {
+    
+    text-decoration: none;
+}
+.margin__bottom{
+    margin-top: 20%;
+}
+.chercheur__style{
+margin-left : -80% ; 
+
+}
+.lesauteur__style{
+    margin-left:-85%
+}
+.Théme__style{
+    margin-left : -86%
+}
+.Titre__style{
+    margin-left: -60%
+}
+.MotsCle__Style{
+    margin-left: -86%
+}
+.Resumer__style{
+    margin-left: -90%
+}
+.btn__submit {
+    background : #333333 ; 
+    margin-left:92% ;
+    color : #fff
+}
+.div__style{
+    margin-bottom: 20px;
+}
+.font__simple {
+    font-family: 'Roboto Mono', monospace;
+}
+.header__Title{
+    margin : 5% auto
+}
+.header__Title__font{
+    font-size: 30px;
+    font-family: 'PT Serif', serif; 
+}
+.header__Title__font:after{
+    content : ""; 
+    width: 100%;
+    height: 100%;
+    background: #333333;
+}
+.souliner{
+    width: 20%;
+    height: 3px;
+    margin: 0 auto;
+    background: #333333  ;
+}
+.marginbuttom{
+    margin-bottom: 0%;
+}
+.span__errors{
+    color : red
+}
+
+.Conference__lable{
+    font-size: 18px;
+    color : #003E51; 
+    font-family: 'Alata', sans-serif;
+    
+}
+.Company__lable{
+    font-size: 15px;
+    color : #B78B20; 
+    font-family: 'Alata', sans-serif;
+}

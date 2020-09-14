@@ -11,7 +11,7 @@ router.use(bodyParser.json());
 
 /* GET users listing. */
 
-router.get("/", authenticate.verifyUser, (req, res, next) => {
+router.get("/",cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   User.find({})
     .then(
       (user) => {
@@ -49,7 +49,7 @@ router.post("/signup", (req, res, next) => {
     specialite: req.body.specialite,
     Etablissement: req.body.Etablissement,
     compagnie: req.body.compagnie,
-    avatar: "profile.png",
+    photo: req.body.photo,
   });
   User.register(user, req.body.password, (err, user) => {
     if (err) {
@@ -60,7 +60,7 @@ router.post("/signup", (req, res, next) => {
       passport.authenticate("local")(req, res, () => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.json({ success: true, status: "Registration Successful!" });
+        res.json({ success: true, status: "Registration Successful!"});
       });
     }
   });
@@ -95,9 +95,20 @@ router.post("/login",  (req, res, next) => {
         token: token,
         body: user,
       });
+      console.log('user detailes ==>' );
+      console.log(user);
+      
     });
   })(req, res, next);
 });
+  router .get('/userInfo',authenticate.verifyUser, (req, res, next) => {
+    User.findById(req.user._id).then((user)=>{
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/json");
+      res.json(user);
+    }).catch(err=>next(err)); 
+     
+  });
 
 router.get("/logout", cors.corsWithOptions, (req, res) => {
   if (req.session) {

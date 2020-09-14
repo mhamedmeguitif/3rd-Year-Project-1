@@ -1,0 +1,13 @@
+.ImageContainer {
+    width: 100px;
+    height: 100px; 
+    position: relative;
+   
+}
+.ImageContainer .image2{
+   border-radius: 30%;
+   width: 100%;
+   height: 100%;
+   position : absolute;
+   background:#f9f9fb ;
+  }
