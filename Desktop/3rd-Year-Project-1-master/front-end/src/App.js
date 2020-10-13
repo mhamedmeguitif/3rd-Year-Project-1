@@ -37,7 +37,8 @@ function App() {
     compagnie: "",
     login: false,
     token: "",
-    photo : ""
+    photo : "",
+    conffav:[]
   });
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 

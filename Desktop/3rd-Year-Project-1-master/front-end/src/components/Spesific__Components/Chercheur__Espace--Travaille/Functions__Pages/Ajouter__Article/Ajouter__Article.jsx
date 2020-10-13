@@ -14,6 +14,7 @@ import Footer from "../../../../Global__components/Footer/Footer";
 import "./Ajouter__Article.css";
 function AjouterArticle({ match }) {
   const [conf, setconf] = useState({});
+  const [Themes, setThemes] = useState([]);
   const [Article_Pdf, setArticle_Pdf] = useState();
   const { user, setUser } = useContext(UserContext); //user__Information
   const { register, handleSubmit ,errors} = useForm();
@@ -27,7 +28,9 @@ function AjouterArticle({ match }) {
         },
       })
       .then((res) => {
+        console.log(res.data)
         setconf(res.data);
+        setThemes(res.data.TheThemes);
       });
   }
    
@@ -210,11 +213,11 @@ function AjouterArticle({ match }) {
     
                         ref={register({ required: "this field is required"})}
                         >
-                          <option>Théme 1</option>
-                          <option>Théme 2</option>
-                          <option>Théme 3</option>
-                          <option>Théme 4</option>
-                          <option>Théme 5</option>
+                    {Themes.map((Theme, index) => (
+                <option key={index}> {Theme.NameOfTheme} </option>
+              ))}
+                      
+                        
                         </select>
                       </div>
                       <div className="form-group col-md-6">

@@ -37,7 +37,7 @@ useEffect(() => {
                            <div className="row" >
     {confs.map((conf,index) => (
                  
-                             <div className="col-md-4" key= {index}>
+                             <div className="col-md-4"  key= {index}>
                                <div className="item-box-blog">
                                  <div className="item-box-blog-image">
                                 
@@ -45,7 +45,7 @@ useEffect(() => {
                                    
                                    <figure> <img alt="" src={galery03} /> </figure>
                                  </div>
-                                 <div className="item-box-blog-body">
+                                 <div className="item-box-blog-body"style={{height:'200'}}>
                                   
                                    <div className="item-box-blog-heading">
                                      <a href="#" tabindex="0">
@@ -61,9 +61,9 @@ useEffect(() => {
                                    <p>{conf.LittleDefinitionOfCompany}</p>
                                    
                                    </div>
-                                   <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                                 
+                                 </div>  <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                                    
-                                 </div>
                                </div>
                              </div>
                          

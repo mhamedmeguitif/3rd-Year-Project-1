@@ -8,7 +8,7 @@ import { Slide } from "react-slideshow-image";
 import { UserContext } from "../../../Config__Global/UserContext";
 import galery03 from "../../../Global__Image/galery03.jpg";
 import Card from "react-bootstrap/Card";
-import AjouterArticleModal from "../../../Spesific__Components/User_article_pages/AjouterArticleModal/AjouterArticleModal";
+
 function PublicConf() {
   const { id } = useParams();
   const { user, setUser } = useContext(UserContext);
@@ -31,6 +31,11 @@ function PublicConf() {
         console.log(res);
       });
   }
+  function ajouterFav (){
+
+  }
+
+
   //les proprieté des sliders
   const properties = {
     duration: 2000,
@@ -273,17 +278,13 @@ function PublicConf() {
                                <a
                   type="button"
                   className="btn btn-danger btn-lg"
-                  onClick={() => setModalShow(true)}
+                 
                   style={{ color: "white" }}
                 >
                
-                  Participate NOW
+                  Add to favoris
                 </a>
-                <AjouterArticleModal
-                  id={id}
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                />
+               
               </Card.Body>
             </Card>
           </div>
@@ -365,17 +366,12 @@ function PublicConf() {
           <a
             type="button"
             className="btn btn-danger btn-lg"
-            onClick={() => setModalShow(true)}
+       
             style={{ color: "white" }}
           >
-            {" "}
-            Participate NOW{" "}
+           Add to favoris
           </a>
-          <AjouterArticleModal
-            id={id}
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
+         
           <br></br>
           <br></br>
         </div>

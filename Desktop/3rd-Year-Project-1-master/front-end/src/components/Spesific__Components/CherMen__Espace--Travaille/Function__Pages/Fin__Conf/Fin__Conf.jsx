@@ -102,12 +102,11 @@ function Fin__Conf({ match }) {
                 </nav>
               </div>
               <div className="content-panel marginbuttom">
-                <p className="header__Title__font">Fin De Conférence </p>
+                <p className="header__Title__font">End of conference </p>
                 
                 <div className="souliner mb-5"></div>
                 <div class="alert alert-danger" role="alert">
-                  <span className="fas fa-exclamation-circle"></span> Cette
-                  version de l’article n’est pas la version finale.
+                  <span className="fas fa-exclamation-circle"> Your conference will be delated  </span> 
                 </div>
                 <div className="Remarque">
                   <p className="Resumer__style font__simple ">Remarque </p>
@@ -118,7 +117,7 @@ function Fin__Conf({ match }) {
                     name="Remarque"
                   ></textarea>
                 </div>
-                <Button className="btn__Fin__Conf">Submit</Button>
+                <Button className="btn__Fin__Conf">End</Button>
               </div>
             </div>
           </section>

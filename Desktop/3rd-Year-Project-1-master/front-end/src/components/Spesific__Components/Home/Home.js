@@ -55,7 +55,7 @@ const Slideshow = () => {
                        
                        <figure> <img alt="" src={galery03} /> </figure>
                      </div>
-                     <div className="item-box-blog-body">
+                     <div className="item-box-blog-body" style={{height:'200'}}>
                       
                        <div className="item-box-blog-heading">
                          <a href={"/AllConf/"+conf._id} tabindex="0">
@@ -70,9 +70,9 @@ const Slideshow = () => {
                        <div className="item-box-blog-text">
                        <p>{conf.LittleDefinitionOfCompany}</p>
                        </div>
-                       <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                        
-                     </div>
+                     </div><div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                       
                    </div>
                  </div> 
                     ) 
@@ -100,7 +100,7 @@ const Slideshow = () => {
                        
                        <figure> <img alt="" src={galery03} /> </figure>
                      </div>
-                     <div className="item-box-blog-body">
+                     <div className="item-box-blog-body" style={{height:'200'}}>
                       
                        <div className="item-box-blog-heading">
                          <a href={"/AllConf/"+conf._id} tabindex="0">
@@ -115,10 +115,10 @@ const Slideshow = () => {
                        <div className="item-box-blog-text">
                        <p>{conf.LittleDefinitionOfCompany}</p>
                        </div>
-                       <div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
+                      
+                     </div><div className="mt"> <a href={"/AllConf/"+conf._id} tabindex="0" className="btn bg-blue-ui white read">read more</a> </div>
                        
-                     </div>
-                   </div>
+                   </div> 
                  </div> 
                     ) 
               

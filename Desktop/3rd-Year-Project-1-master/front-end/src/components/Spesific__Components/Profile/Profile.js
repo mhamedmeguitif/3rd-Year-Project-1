@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../Profile/profile.css";
+import pdp from '../../Global__Image/user.png'
 import Axios from "axios";
 import { UserContext } from "../../Config__Global/UserContext";
 import UserNavbar from "../../Global__components/NavBar/NavBarUser/UserNavbar";
@@ -7,12 +8,14 @@ import Footer from "../../Global__components/Footer/Footer";
 function Profile({ match }) {
   const [profileImg, setProfileImg] = useState("");
   const { user, setUser } = useContext(UserContext);
-
+const [image, setimage] = useState(pdp)
   useEffect(() => {
     console.log("m---------------------------------m");
     console.log(profileImg);
   });
   const OnFileChange = (event) => {
+   const objectURL = URL.createObjectURL(event.target.files[0]);
+   setimage(objectURL)
     setProfileImg(event.target.files[0]);
     console.log(profileImg);
   };
@@ -64,11 +67,19 @@ function Profile({ match }) {
               <div className="side-bar">
                 <div className="user-info">
                   <div className="ImageContainer">
-                  <img 
+                    {user.photo?
+                    <img 
                     className=" img-circle img-responsive center-block image2"
                     src={user.photo}
                     alt="profile pic"
                   />
+                    : <img 
+                    className=" img-circle img-responsive center-block image2"
+                    src={image}
+                    alt="profile pic"
+                  />
+                    }
+                 
                   </div>
                   
                   <ul className="meta list list-unstyled">
@@ -115,24 +126,32 @@ function Profile({ match }) {
               </div>
               <div className="content-panel">
                 <form className="form-horizontal">
-                  <fieldset className="fieldset">
-                    <div className="form-group avatar formOfUpload">
+                  <fieldset className="fieldset ">
+                    <div className="form-group avatar formOfUpload ">
                       <figure className="figure col-md-2 col-sm-3 col-xs-12">
-                    <div  className="ImageContainer">
+                          <div  className="ImageContainer "> &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+               
                     <img
-                          className="img-rounded img-responsive image1"
-                          src={user.photo}
+                          className="img-rounded img-responsive image1 "
+                          src={image}
                           alt="profile pic"
                         />
                     </div>
                       </figure>
-                      <div className="form-inline col-md-10 col-sm-9 col-xs-12">
+                      <div className="form-inline col-md-10 col-sm-9 col-xs-12 ">
                         &nbsp; &nbsp; &nbsp;
                         <div className="container">
                           <div className="row">
-                            <form onSubmit={OnSubmit}>
-                              <div className="form-group">
-                                <input type="file" onChange={OnFileChange} />
+                            <form onSubmit={OnSubmit} >
+                              <div className="form-group text-center">
+                              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                               <button >
+                                 <input  type="file"  onChange={OnFileChange} />
+                               </button>
+                                
+                               
+                               &nbsp;
+
                                 <button
                                   className="btn btn-primary button-1"
                                   type="submit"
@@ -145,7 +164,7 @@ function Profile({ match }) {
                         </div>
                       </div>
                     </div>
-
+<br></br> <br></br>
                     <div className="form-group">
                       <label
                         style={{ color: "black" }}
@@ -248,6 +267,7 @@ function Profile({ match }) {
                         type="submit"
                         value="Update Profile"
                       />
+                      
                     </div>
                   </div>
                 </form>

@@ -11,6 +11,7 @@ import swal from 'sweetalert';
 import "./Modifier__Article.css";
 function Modifier__Article({ match }) {
   const [conf, setconf] = useState({});
+  const [Themes, setThemes] = useState([]);
   const [Article , setArticle ] = useState({});
   const [Article_Pdf, setArticle_Pdf] = useState();
   const { user, setUser } = useContext(UserContext); //user__Information
@@ -26,6 +27,7 @@ function Modifier__Article({ match }) {
       })
       .then((res) => {
         setconf(res.data);
+        setThemes(res.data.TheThemes);
       });
   }
    
@@ -80,7 +82,7 @@ function Modifier__Article({ match }) {
         },
       })
       .then((res) => {
-        console.log(res.data._id);
+        console.log(res.data);
         const formData = new FormData();
         formData.append("ArticleFile", data.ArticleFile[0]);
 
@@ -191,7 +193,7 @@ function Modifier__Article({ match }) {
                       </div>
                       <div className="form-group col-md-6">
                         <p className="chercheur__style font__simple ">
-                          Conférence
+                          Conference
                         </p>
                         <input
                           type="text"
@@ -203,7 +205,7 @@ function Modifier__Article({ match }) {
                     </div>
                     <div className="form-group div__style">
                       <p className="lesauteur__style font__simple ">
-                        Les Auteures
+                       The autors
                       </p>
                       <input
                         type="text"
@@ -218,7 +220,7 @@ function Modifier__Article({ match }) {
                     </div>
                     <div className="form-row div__style mt-5">
                       <div className="form-group col-md-6">
-                        <p className="Théme__style font__simple ">Théme</p>
+                        <p className="Théme__style font__simple ">Topic</p>
 
                         <select
                           class="form-control"
@@ -227,11 +229,9 @@ function Modifier__Article({ match }) {
                           placeholder={Article.Theme}
                         ref={register.Theme}
                         >
-                          <option>Théme 1</option>
-                          <option>Théme 2</option>
-                          <option>Théme 3</option>
-                          <option>Théme 4</option>
-                          <option>Théme 5</option>
+                             {Themes.map((Theme, index) => (
+                <option key={index}> {Theme.NameOfTheme} </option>
+              ))}
                         </select>
                       </div>
                       <div className="form-group col-md-6">
@@ -258,7 +258,7 @@ function Modifier__Article({ match }) {
                         id="exampleFormControlTextarea1"
                         rows="3"
                         name="mots"
-                        placeholder={Article.les_mots_cles}
+                        placeholder={Article.les_mots_clés}
                         ref={register}
                       ></textarea>
                        {/* errors will return when field validation fails  */}
