@@ -15,6 +15,7 @@ function Fin__Conf({ match }) {
   const { user, setUser } = useContext(UserContext); //user__Information
   const { register, handleSubmit, errors } = useForm();
   /*funcions */
+  
   function AfficherConf() {
     axios
       .get(`http://localhost:3000/conferences/${match.params.conf}`, {

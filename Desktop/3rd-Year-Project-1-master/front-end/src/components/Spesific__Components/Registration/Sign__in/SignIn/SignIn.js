@@ -29,6 +29,7 @@ function SignIn() {
         setLoading(false);
         setSuccess(true);
         const login=true;
+        const admin=res.data.body.admin;
         const  id = res.data.body._id;
         const  firstname = res.data.body.nom_de_famille;
         const  lastname= res.data.body.prenom;
@@ -53,6 +54,7 @@ function SignIn() {
                    Etablissement,
                    compagnie, 
                    login,
+                   admin,
                    token
                 });
        

@@ -1,5 +1,6 @@
 import { PrivateRoute } from "./components/Config__Global/PrivateRoute";
 import { PublicRoute } from "./components/Config__Global/PublicRoute";
+import { SuperRoute } from "./components/Config__Global/SuperRoute";
 import React, { useMemo, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
@@ -12,7 +13,7 @@ import AllMyConf from "./components/Spesific__Components/User_conf_pages/AllMyco
 import { useLocalStorage } from "./components/Config__Global/hooks";
 import AllmyArticles from "./components/Spesific__Components/User_article_pages/AllmyArticles/AllmyArticles";
 import PublicConf from "./components/Spesific__Components/Conference/Public__Conf/PublicConf";
-
+import SuperAdmin from './components/Spesific__Components/SuperAdmin/SuperAdmin'
 import Ajouter__Article from "./components/Spesific__Components/Chercheur__Espace--Travaille/Functions__Pages/Ajouter__Article/Ajouter__Article.jsx"
 import Ajouter__Finale from "./components/Spesific__Components/Chercheur__Espace--Travaille/Functions__Pages/Ajouter__final/Ajouter__Final.jsx"
 import Modifier__Article  from "./components/Spesific__Components/Chercheur__Espace--Travaille/Functions__Pages/Modifier__Article/Modifier__Article.jsx"
@@ -21,6 +22,9 @@ import Ajouter__Evaluateur from "./components/Spesific__Components/CherMen__Espa
 import Affecter__Article from './components/Spesific__Components/CherMen__Espace--Travaille/Function__Pages/Affecter__Articles/Affecter__Articles.jsx'
 import Fin__Conf from './components/Spesific__Components/CherMen__Espace--Travaille/Function__Pages/Fin__Conf/Fin__Conf.jsx'
 import Note__Finale from './components/Spesific__Components/CherMen__Espace--Travaille/Function__Pages/Note__Finale/Note__Finale.jsx'
+import About from "./components/Spesific__Components/About/About";
+import Teamdev from "./components/Spesific__Components/Teamdev/Teamdev";
+import SupAdminConf from "./components/Spesific__Components/SuperAdmin/SupAdminConf";
 
 function App() {
   const [user, setUser] = useLocalStorage({
@@ -38,6 +42,7 @@ function App() {
     login: false,
     token: "",
     photo : "",
+    admin:false,
     conffav:[]
   });
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -64,7 +69,8 @@ function App() {
             path="/profile/articles"
             component={AllmyArticles}
           />
-
+<Route path="/About" component={About}  />
+<Route path="/Teamdev" component={Teamdev}  />
           <PrivateRoute exact path="/profile/articles/Ajouter__Article/:article" component={Ajouter__Article} />
           <PrivateRoute exact path="/profile/articles/Ajouter__Article/version__finale/:article" component={Ajouter__Finale} />
           <PrivateRoute exact path="/profile/articles/Ajouter__Article/Modifier__Article/:article" component={Modifier__Article} />
@@ -74,7 +80,8 @@ function App() {
           <PrivateRoute exact path="/profile/Conferences/Affecter__Article/:conf" component={Affecter__Article}/>
           <PrivateRoute exact path="/profile/Conferences/Fin__Conf/:conf" component={Fin__Conf}/>
           <PrivateRoute exact path="/profile/Conferences/Note__Finale/:conf" component={Note__Finale}/>
-         
+          <SuperRoute exact path="/Superadmin" component={SuperAdmin}/>
+          <PrivateRoute exact path="/Superadmin/conf" component={SupAdminConf}/>
          
         </BrowserRouter>
       </div>

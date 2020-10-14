@@ -36,18 +36,12 @@ function UserNavbar() {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
       <Nav.Link href="/home">Home</Nav.Link>
-      <Nav.Link href="#">About</Nav.Link>
-      <Nav.Link href="#">Help</Nav.Link>
+      <Nav.Link href="/About">About</Nav.Link>
+ 
      
     </Nav>
     <Nav >
-    <Nav.Link href="/home">
-    <a class="nav-link"  target="_blank" rel="noopener" aria-label="GitHub">
-      
-            <i class="fa fa-lg fa-bell" style={{color:'Gainsboro'}}></i>
-            <span class="notification-badge badge badge-danger">1</span>
-        </a>
-        </Nav.Link>
+    
     
         &nbsp;  &nbsp;           
                        
